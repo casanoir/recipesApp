@@ -24,18 +24,18 @@ class AllIngredients extends Component
     public function mount($alphabet)
     {
         $this->alphabet=$alphabet;
-        $this->ingredientsAlphabetically = DB::select("select name  from ingredients where name LIKE '$alphabet%' order by name");
+        $this->ingredientsAlphabetically = DB::select("select * from ingredients where name LIKE '$alphabet%' order by name");
     }
 
     
     public function getIngerdientsAlphabetically($alphabet)
     {
-        $this->ingredientsAlphabetically = DB::select("select name  from ingredients where name LIKE '$alphabet%' order by name");
+        $this->ingredientsAlphabetically = DB::select("select * from ingredients where name LIKE '$alphabet%' order by name");
         
     }
-    // public function ingredientsInfo($apiIngredientId){
-    //     $this->apiIngredientId=$apiIngredientId;
-    //     dd($this->apiIngredientId);
-    // }
+    public function ingredientsInfo($apiIngredientId){
+        $this->apiIngredientId=$apiIngredientId;
+        dd($this->apiIngredientId);
+    }
     
 }

@@ -5,9 +5,7 @@
 
                 @endforeach
                 @foreach ($ingredientsAlphabetically as $ingredient)
-                <p>{{$ingredient->name}} </p>
-                {{-- <p>{{$ingredient->image}} </p>
-                <p>{{$ingredient->apiIngredientId}}</p>
-                <button wire:click="ingredientsInfo()">show</button> --}}
+                <p>{{$ingredient->name}} </p>                
+                <button wire:click="ingredientsInfo({{$ingredient->apiIngredientId}})">show</button>
                 @endforeach
             </div>
