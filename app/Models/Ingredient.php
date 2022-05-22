@@ -13,7 +13,6 @@ class Ingredient extends Model
         'unit',
         'name',
         'image',
-        'unit',
         'apiIngredientId'
     ];
 }
