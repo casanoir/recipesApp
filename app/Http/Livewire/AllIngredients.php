@@ -18,13 +18,14 @@ class AllIngredients extends Component
 
     public function render()
     {
+        // $this->ingredientsAlphabetically =Ingredient::all()->get();
         return view('livewire.all-ingredients');
     }
    
     public function mount($alphabet)
     {
         $this->alphabet=$alphabet;
-        $this->ingredientsAlphabetically = DB::select("select * from ingredients where name LIKE '$alphabet%' order by name");
+        $this->getIngerdientsAlphabetically ($alphabet);
     }
 
     

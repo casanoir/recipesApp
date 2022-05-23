@@ -6,6 +6,9 @@
                 @endforeach
                 @foreach ($ingredientsAlphabetically as $ingredient)
                 <p>{{$ingredient->name}} </p>                
-                <button wire:click="ingredientsInfo({{$ingredient->apiIngredientId}})">show</button>
+                <form action="#" wire:submit.prevent="ingredientsInfo({{$ingredient->apiIngredientId}})">
+                    <button>show info</button>
+                </form>
+                
                 @endforeach
             </div>
