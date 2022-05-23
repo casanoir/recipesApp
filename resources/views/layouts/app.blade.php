@@ -21,7 +21,10 @@
     @livewireStyles
 </head>
 <body >
+    {{-- app content --}}
     @yield('content')
+
+    {{-- livewire Script --}}
     @livewireScripts
 </body>
 </html>

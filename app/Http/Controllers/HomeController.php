@@ -21,20 +21,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function dashboardHome()
     {
         return view('dashboard.home');
     }
-    public function indexRecipes()
+    public function dashboardRecipes()
     {
         return view('dashboard.recipes');
     }
-    public function indexIngredients()
+    public function dashboardIngredients()
     {
         return view('dashboard.ingredients');
-    }
-    public function indexAbout()
-    {
-        return view('dashboard.about');
     }
 }

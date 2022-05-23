@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/','index');
-
+Route::view('/about', 'about')->name('about');
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/recipes', [App\Http\Controllers\HomeController::class, 'indexRecipes'])->name('recipes');
-Route::get('/ingredients', [App\Http\Controllers\HomeController::class, 'indexIngredients'])->name('ingredients');
-Route::get('/about', [App\Http\Controllers\HomeController::class, 'indexAbout'])->name('about');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/home', 'dashboardHome')->name('home');
+    Route::get('/recipes', 'dashboardRecipes')->name('recipes');
+    Route::get('/ingredients', 'dashboardIngredients')->name('ingredients');
+});
