@@ -8,13 +8,13 @@
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <a style="width: 100%;" class="btn btn-primary m-3" href="https://www.linkedin.com/in/abderrahmane-mendoun-920421223/">Abderrahmane Mendoun</a> 
+            <a style="width: 100%;" class="btn btn-primary m-3" href="https://www.linkedin.com/in/abderrahmane-mendoun-920421223/" target="_blank">Abderrahmane Mendoun</a> 
         </div>
         <div class="col-4">
-            <a style="width: 100%;"  class="btn btn-primary m-3" href="https://www.linkedin.com/in/berre-vandendorpe-14a328227/">Berre Vandendorpe</a> 
+            <a style="width: 100%;"  class="btn btn-primary m-3" href="https://www.linkedin.com/in/berre-vandendorpe-14a328227/" target="_blank">Berre Vandendorpe</a> 
         </div>
         <div class="col-4">
-            <a style="width: 100%;"  class="btn btn-primary m-3" href="">ALI</a> 
+            <a style="width: 100%;"  class="btn btn-primary m-3" href="https://www.linkedin.com/in/ali-el-baz-827a9b172/" target="_blank">ALI</a> 
         </div>
     </div>
 </div>
