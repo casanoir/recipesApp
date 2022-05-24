@@ -18,7 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <!--Font Awesome Icons-->
+    <script src="https://kit.fontawesome.com/d8d68bfe42.js" crossorigin="anonymous"></script>
     @livewireStyles
 </head>
 <body >
