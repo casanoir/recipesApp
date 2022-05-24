@@ -3,7 +3,7 @@
 {{-- navbar  --}}
 @include ('layouts.layout.navbar')
 <!-- home Page content-->
-<h3>recipes</h3>
+<h3 class="mt-5 text-center">recipes</h3>
 <div class="container" >
     <div class="row justify-content-center ">
         <div class="col-md-3 " style="background-color: rgb(112, 225, 43)" >

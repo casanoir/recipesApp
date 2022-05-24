@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Route::view('/about', 'about')->name('about');
 
 Auth::routes();
 
-Route::controller(HomeController::class)->group(function () {
+Route::controller(AppController::class)->group(function () {
     Route::get('/home', 'dashboardHome')->name('home');
     Route::get('/recipes', 'dashboardRecipes')->name('recipes');
     Route::get('/ingredients', 'dashboardIngredients')->name('ingredients');

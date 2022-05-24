@@ -10,7 +10,6 @@ class Ingredient extends Model
     use HasFactory;
 
     protected $fillable = [
-        'unit',
         'name',
         'image',
         'apiIngredientId'
