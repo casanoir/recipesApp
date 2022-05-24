@@ -18,7 +18,7 @@ class CreateIngredientsTable extends Migration
             $table->string('name');
             $table->string('image')->default('https://spoonacular.com/cdn/ingredients_100x100/default.png');
             $table->bigInteger('apiIngredientId');
-            $table->timestamps();
+          $table->timestamps();
         });
     }
 
