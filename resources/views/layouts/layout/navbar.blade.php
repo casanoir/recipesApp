@@ -1,32 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm" id="header" >
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            <img src="/images/logo.png" id="navLogo"/>
         </a>
+        @auth
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        @endauth
             
 
             
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
-                @guest
-                <!-- Right Side Of Navbar -->
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
+                @auth
                 <!-- Left Side Of Navbar -->
                 <ul class=" navbar-nav me-5">
                     <li class="nav-item">
@@ -51,6 +40,28 @@
                         <button id="search-button" type="button" class="btn btn-sm btn-primary">
                           <i class="fas fa-search"></i>
                         </button>
+                        <!--START searchModal-->
+                        <button id="search-settings" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <i class="fas fa-cogs"></i>
+                        </button>
+                        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="searchModalLabel">Search settings</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END searchModal-->
                       </div>
                 </div>
                 <!-- Right Side Of Navbar -->
@@ -75,7 +86,7 @@
                             
                         </div>
                     </li>
-                @endguest
+                @endauth
             </ul>
         </div>
     </div>

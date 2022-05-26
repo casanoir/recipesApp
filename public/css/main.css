@@ -6,88 +6,51 @@ body {
 
 
 
-#loginBtnLogin {
-    background-color: #90DBB9;
-    border-color: #80C5C5;
+#indexBackground {
+    background-image: url("/images/indexBg.jpg");
+    background-size: 100% 100%;
+    position: fixed;
+    width: 100vw;
+    height: calc(100vh - 150px);
+    z-index: -5;
 }
-#loginBtnLogin:hover {
-    background-color: #85CDC1;
-}
-
-#loginBtnCreate {
-    background-color: transparent;
-    color: #90DBB9;
-    border-color: #90DBB9;
-}
-#loginBtnCreate:hover {
-    background-color: #90DBB9;
-    color: #ffffff !important;
-    border-color: #80C5C5;
-}
-
-#loginContainer {
+#indexContainer {
     color: #efefef;
-}
-#loginContainer a {
-    color: #efefef;
-    text-decoration: none;
-}
-#loginContainer a:hover {
-    color: #cccccc;
-}
-#loginContainer i {
-    font-size: 26px;
-    color: #90DBB9;
-}
-#loginContainer ::placeholder {
-    color: #cecece;
-}
-
-#loginFirstInput, .loginMiddleInput, #loginLastInput {
-    border-style: solid;
-    border-color: #efefef;
-    border-width: 2px;
-}
-#loginFirstInput {
-    border-radius: 5px 5px 0 0;
-}
-.loginMiddleInput {
-    border-radius: 0;
-}
-#loginLastInput {
-    border-radius: 0 0 5px 5px;
-}
-
-#loginForm {
-    border-radius: 30px 0px 0px 30px;
-}
-#loginImg {
-    background-image: url("/images/loginBg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position-y: 20%;
-    border-radius: 0px 30px 30px 0px;
+    margin-top: 30vh;
 }
 
 
 
-.loginCol {
-    min-height: 500px;
-    background-color: #67A3D8;
+
+
+@media only screen and (max-height: 500px) {
+    #indexContainer {
+        margin-top: 20vh;
+    }
 }
 
-.loginInputEnd input:-webkit-autofill,
-.loginInputEnd input:-webkit-autofill:hover, 
-.loginInputEnd input:-webkit-autofill:focus, 
-.loginInputEnd input:-webkit-autofill:active,
-.loginInputEnd input,
-.loginInputEnd input:focus,
-.loginInputStart {
-    -webkit-box-shadow: 0 0 0 30px #67A3D8 inset !important;
-    box-shadow: 0 0 0 30px #67A3D8 inset !important;
-    border-style: none;
-    border-radius: 0;
-    border-color: none;
-    border-width: 0;
+@media only screen and (max-height: 350px) {
+    #indexContainer {
+        margin-top: 10vh;
+    }
+}
+
+
+
+
+
+/* Bootstrap overrides */
+.btn-primary {
+    background-color: #7DBE8E;
+    border-color: #4F7759;
+}
+.btn-primary:hover {
+    background-color: #6FA87E;
+    border-color: #4F7759;
+}
+.nav-link {
     color: #efefef !important;
+}
+.nav-link:hover {
+    color: #ffffff !important;
 }
