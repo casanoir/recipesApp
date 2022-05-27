@@ -7,9 +7,18 @@
     {{-- Show all ingredients alphabetically --}}
     @foreach ($ingredientsAlphabetically as $ingredient)
         {{-- Ingredient Name --}}
-        <p>{{$ingredient->name}} </p>    
-       
-        <button wire:click="ingredientInfo({{$ingredient->apiIngredientId}})">show info</button>
+        <div class="row mt-2">
+            {{-- <div class="col-md-5">
+                <img src="https://spoonacular.com/cdn/ingredients_100x100/pineapple.jpg" alt="ingredientData-name">
+            </div>
+            <div class="col-md-7">
+                <p>{{$ingredient->name}} </p>    
+                <button wire:click="ingredientInfo({{$ingredient->apiIngredientId}})">show info</button>
+            </div> --}}
+                <p>{{$ingredient->name}} </p>    
+                <button wire:click="ingredientInfo({{$ingredient->apiIngredientId}})">show info</button>
+            
+        </div>
 
     @endforeach
 </div>

@@ -33,7 +33,6 @@ class AllIngredients extends Component
 
     // 
     public function ingredientInfo($apiIngredientId){
-        $this->apiIngredientId=$apiIngredientId;
         $this->emit('ingredientInfo',$apiIngredientId);
         $this->getIngerdients();
     }
