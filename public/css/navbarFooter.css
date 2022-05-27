@@ -1,0 +1,36 @@
+Footer {
+    position: fixed;
+    bottom: 0%;
+    width:100%;
+    background-image: linear-gradient(#4F7859, #79B889); 
+}
+
+#header {
+    background-image: linear-gradient(#9AEAAF, #4F7759);
+}
+#navLogo {
+    height: 50px;
+}
+#search-button {
+   background-color: #f8fafc;
+   border-width: 1px;
+   border-style: solid none solid none;
+   border-color: #ced4da;
+   border-radius: 0;
+   color: #212529;
+}
+#search-input {
+    border-radius: 10px 0px 0px 10px;
+    max-width: 176px;
+}
+#search-settings {
+    background-color: #9AEAAF;
+    border-width: 1px;
+    border-style: solid solid solid none;
+    border-color: #ced4da;
+    border-radius: 0px 10px 10px 0px;
+}
+#search-settings:hover {
+    background-color: #8ad19d;
+}
+

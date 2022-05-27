@@ -1,0 +1,56 @@
+body {
+    margin-top: 0px !important;
+    height: 100vh;
+    font-size: 16px;
+}
+
+
+
+#indexBackground {
+    background-image: url("/images/indexBg.jpg");
+    background-size: 100% 100%;
+    position: fixed;
+    width: 100vw;
+    height: calc(100vh - 150px);
+    z-index: -5;
+}
+#indexContainer {
+    color: #efefef;
+    margin-top: 30vh;
+}
+
+
+
+
+
+@media only screen and (max-height: 500px) {
+    #indexContainer {
+        margin-top: 20vh;
+    }
+}
+
+@media only screen and (max-height: 350px) {
+    #indexContainer {
+        margin-top: 10vh;
+    }
+}
+
+
+
+
+
+/* Bootstrap overrides */
+.btn-primary {
+    background-color: #7DBE8E;
+    border-color: #4F7759;
+}
+.btn-primary:hover {
+    background-color: #6FA87E;
+    border-color: #4F7759;
+}
+.nav-link {
+    color: #efefef !important;
+}
+.nav-link:hover {
+    color: #ffffff !important;
+}

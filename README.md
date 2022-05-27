@@ -10,5 +10,5 @@
 <br>6-type php artisan key:generate to regenrate secure key
 <br>7- set DB
 <br>8-type php artisan migrate --seed to create and populate tables
-
+CLIENT_API_KEY="apikey"
 it's done!
