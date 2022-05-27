@@ -9,7 +9,6 @@ use DB;
 
 class IngredientInfo extends Component
 {
-    
     public $apiIngredientId;
     public $ingredientName;
     public $ingredientData;
@@ -18,13 +17,8 @@ class IngredientInfo extends Component
     public $ingredientRecipes;
     
     protected $listeners =['ingredientInfo'=>'update'];
-    
-    public function render()
-    {
-        return view('livewire.ingredient-info');
-    }
-
-    // // Get all available information about an ingredient
+ 
+    // Get all available information about an ingredient
     public function getIngredientInfo($id){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/food/ingredients/'.$id.'/information?', [
             'apiKey'=>env('CLIENT_API_KEY'),
@@ -34,7 +28,7 @@ class IngredientInfo extends Component
         return $this->ingredientData;
     }
 
-    // // Search for substitutes for a given ingredient.
+    // Search for substitutes for a given ingredient.
     public function getIngredientSubstitutes($id){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/food/ingredients/'.$id.'/substitutes', [
             'apiKey'=>env('CLIENT_API_KEY'),
@@ -66,6 +60,6 @@ class IngredientInfo extends Component
     }
 
 }
-// https://api.spoonacular.com/recipes/findByIngredients?ingredients={{$ingredientName}}&number=8
+// https://api.spoonacular.com/recipes/findByIngredients?ingredients={{ $ingredientName }}&number=8
 // GET https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2
 // GET https://api.spoonacular.com/food/ingredients/9266/information?apiKey=3727e8e26c9241faba401b1d59156e31&amount=1
