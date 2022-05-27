@@ -1,10 +1,7 @@
-    <footer class="py-4 bg-dark " 
-            style=" position: fixed;
-                    bottom: 0%;
-                    width:100%" >
+    <footer class="py-4 bg-dark">
         <div class="container">
             <p class="m-0 text-center text-white">
-                Copyright 
+                Allrecipes is part of Spoonacular API. © Copyright 2022
             </p>
         </div>
     </footer>

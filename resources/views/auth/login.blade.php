@@ -3,7 +3,7 @@
 @section('content')
 <div class="container h-100" id="loginContainer">
     <div class="row py-5 h-100">
-        <div class="col-4  pt-4 loginCol" id="loginForm">
+        <div class="col-4 pt-4 loginCol" id="loginForm">
             <div class="container g-0">
                 <div class="row">
                     <div class="col-12 g-0">
