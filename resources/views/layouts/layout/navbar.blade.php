@@ -70,8 +70,8 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown">
-                            <a  class="dropdown-item" href="#">
+                        <div class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown" data-toggle="modal" data-target="#profileModal"">
+                            <a  class="dropdown-item">
                                 Profile
                             </a>
                             
@@ -86,6 +86,29 @@
                             
                         </div>
                     </li>
+
+                    <div wire:ignore.self class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="profileModalLabel">profile</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                         <span aria-hidden="true close-btn">×</span>
+                                    </button>
+                                </div>
+                               <div class="modal-body">
+                                    {{ Auth::user()->name }}<hr>
+                                    {{ Auth::user()->email }}<hr>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
+                                    <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
                 @endauth
             </ul>
         </div>
