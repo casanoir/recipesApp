@@ -18,8 +18,8 @@
         <span>{{$badRecipeNutrition['title']}}</span>
         <span>{{$badRecipeNutrition['amount']}}</span><br>
         <span>Percent Of Daily Needs: {{$badRecipeNutrition['percentOfDailyNeeds']}}%</span>
-        <div style="width:500px; height:50px; background-color: white; border: 1px solid black;">
-            <div style="width: {{$badRecipeNutrition['percentOfDailyNeeds']}}%; height:100%; background-color: red; max-width: 100%;">
+        <div class="percentageBarBackground">
+            <div class="percentageBarInside percentageBarBad" style="width: {{$badRecipeNutrition['percentOfDailyNeeds']}}%;">
         </div>
         <hr>
     @endforeach
@@ -30,8 +30,8 @@
         <span>{{$goodRecipeNutrition['title']}}</span>
         <span>{{$goodRecipeNutrition['amount']}}</span><br>
         <span>Percent Of Daily Needs: {{$goodRecipeNutrition['percentOfDailyNeeds']}}%</span>
-        <div style="width:500px; height:50px; background-color: white; border: 1px solid black;">
-            <div style="width: {{$goodRecipeNutrition['percentOfDailyNeeds']}}%; height:100%; background-color: green; max-width: 100%;">
+        <div class="percentageBarBackground">
+            <div class="percentageBarInside percentageBarGood" style="width: {{$goodRecipeNutrition['percentOfDailyNeeds']}}%;">
         </div>
         <hr>
         
