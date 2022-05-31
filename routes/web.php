@@ -23,5 +23,6 @@ Auth::routes();
 Route::controller(AppController::class)->group(function () {
     Route::get('/home', 'dashboardHome')->name('home');
     Route::get('/recipes', 'dashboardRecipes')->name('recipes');
+    Route::get('/recipe/{recipeId}', 'dashboardShowRecipe')->name('showRecipe');
     Route::get('/ingredients', 'dashboardIngredients')->name('ingredients');
 });

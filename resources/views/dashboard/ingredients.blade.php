@@ -7,11 +7,11 @@
     <div class="row justify-content-center ">
         {{-- All Ingredients Alphabetically --}}
             <div class="col-md-3 " style="background-color: rgb(112, 225, 43)" >
-                @livewire('all-ingredients')
+                @livewire('ingredients.all-ingredients')
             </div>
         {{-- All Ingredients Alphabetically --}}
             <div class="col-md-9 " style="background-color:aquamarine">
-                @livewire('ingredient-info')
+                @livewire('ingredients.ingredient-info')
             </div>
     </div>
 </div>

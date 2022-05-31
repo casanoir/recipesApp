@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\ingredients;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
-use GuzzleHttp\Client;
 use DB;
 
 class IngredientInfo extends Component
@@ -17,11 +16,12 @@ class IngredientInfo extends Component
     public $ingredientRecipes;
     
     protected $listeners =['ingredientInfo'=>'update'];
+
  
     // Get all available information about an ingredient
     public function getIngredientInfo($id){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/food/ingredients/'.$id.'/information?', [
-            'apiKey'=>env('CLIENT_API_KEY'),
+            'apiKey'=>env('SPOONACULAR_API_KEY'),
             'amount' => 1,
         ]);
         $this->ingredientData = $response->json();
@@ -31,7 +31,7 @@ class IngredientInfo extends Component
     // Search for substitutes for a given ingredient.
     public function getIngredientSubstitutes($id){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/food/ingredients/'.$id.'/substitutes', [
-            'apiKey'=>env('CLIENT_API_KEY'),
+            'apiKey'=>env('SPOONACULAR_API_KEY'),
         ]);
         $this->ingredientSubstitutes = $response->json();
         return $this->ingredientSubstitutes;
@@ -40,7 +40,7 @@ class IngredientInfo extends Component
     // Get 8 Recipes by Ingredient.
     public function getIngredientRecipes($ingredientName){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/findByIngredients?', [
-            'apiKey'=>env('CLIENT_API_KEY'),
+            'apiKey'=>env('SPOONACULAR_API_KEY'),
             'number'=>8,
             'ingredients'=>$ingredientName,
         ]);

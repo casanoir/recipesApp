@@ -58,7 +58,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$recipe['title']}}</h5>
                         <p>You need {{$recipe['missedIngredientCount']}} ingredients more to do that recipe.</p>
-                        <a href="/recipes/" class="btn btn-primary">More details</a>
+                        <a href="/recipe/{{$recipe['id']}}" class="btn btn-primary">More details</a>
                     </div>
                 </div>
             @endforeach
