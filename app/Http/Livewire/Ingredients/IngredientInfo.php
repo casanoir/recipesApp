@@ -17,7 +17,7 @@ class IngredientInfo extends Component
     
     protected $listeners =['ingredientInfo'=>'update'];
 
- 
+
     // Get all available information about an ingredient
     public function getIngredientInfo($id){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/food/ingredients/'.$id.'/information?', [

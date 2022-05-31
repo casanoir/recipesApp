@@ -7,8 +7,7 @@
 <div class="container" >
     <div class="row justify-content-center ">
         <div class="col-md-3 " style="background-color: rgb(112, 225, 43)" >
-            @livewire('recipes.recipe-ingredients')
-            @livewire('ingredients.ingredient-info')
+            @livewire('recipes.recipe-ingredients',['recipeId'=>$recipeId])
         </div>
         <div class="col-md-9 " style="background-color:aquamarine">
             @livewire('recipes.recipe-info',['recipeId'=>$recipeId])
