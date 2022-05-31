@@ -11,9 +11,10 @@ body {
     background-size: 100% 100%;
     position: fixed;
     width: 100vw;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 145px);
     z-index: -5;
 }
+
 #indexContainer {
     color: #efefef;
     margin-top: 30vh;
@@ -48,6 +49,7 @@ body {
     background-color: #6FA87E;
     border-color: #4F7759;
 }
+
 .nav-link {
     color: #efefef !important;
 }

@@ -8,9 +8,11 @@ Footer {
 #header {
     background-image: linear-gradient(#9AEAAF, #4F7759);
 }
+
 #navLogo {
     height: 50px;
 }
+
 #search-button {
    background-color: #f8fafc;
    border-width: 1px;
@@ -19,10 +21,12 @@ Footer {
    border-radius: 0;
    color: #212529;
 }
+
 #search-input {
     border-radius: 10px 0px 0px 10px;
-    max-width: 176px;
+    max-width: 174px;
 }
+
 #search-settings {
     background-color: #9AEAAF;
     border-width: 1px;
@@ -30,6 +34,7 @@ Footer {
     border-color: #ced4da;
     border-radius: 0px 10px 10px 0px;
 }
+
 #search-settings:hover {
     background-color: #8ad19d;
 }
