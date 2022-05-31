@@ -14,7 +14,7 @@ class CreateIngredientsTable extends Migration
     public function up()
     {
         Schema::create('ingredients', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name');
             $table->string('image')->default('https://spoonacular.com/cdn/ingredients_100x100/default.png');
             $table->bigInteger('apiIngredientId');
@@ -30,5 +30,10 @@ class CreateIngredientsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('ingredients');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'ingredients_users');
     }
 }
