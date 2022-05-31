@@ -1,9 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm" id="header" >
     <div class="container">
+        @guest
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="/images/logo.png" id="navLogo"/>
         </a>
+        @endguest
+        
         @auth
+        <a class="navbar-brand" href="{{ url('/home') }}">
+            <img src="/images/logo.png" id="navLogo"/>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
