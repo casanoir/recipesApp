@@ -75,12 +75,15 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->firstName }}
                         </a>
-
-                        <div class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown" data-toggle="modal" data-target="#profileModal"">
-                            <a  class="dropdown-item">
-                                Profile
-                            </a>
-                            
+                                
+                        <div class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown">
+                                {{-- profile modal btn start  --}}
+                            <div data-toggle="modal" data-target="#profileModal">
+                                <a  class="dropdown-item">
+                                    Profile
+                                </a>
+                            </div>
+                           {{-- end profile btn modal --}}
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -92,7 +95,7 @@
                             
                         </div>
                     </li>
-
+                                {{-- start profile modal --}}
                     <div wire:ignore.self class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -102,19 +105,11 @@
                                          <span aria-hidden="true close-btn">×</span>
                                     </button>
                                 </div>
-                               <div class="modal-body">
-                                    {{ Auth::user()->firstName }}<hr>
-                                    {{ Auth::user()->email }}<hr>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
-                                    <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal">Save</button>
-                                </div>
+                               @livewire('modals.profile-modal')
                             </div>
                         </div>
                     </div>
-                
-
+                    {{-- end profile modal --}}
                 @endauth
             </ul>
         </div>
