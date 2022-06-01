@@ -9,9 +9,8 @@ use DB;
 class AllIngredients extends Component
 {
     public $alphabets=['A','B','C','D','E','F','G','H','I','J','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y'];
-    public $ingredientsAlphabetically;
-    public $suppliersNotInDB;   
-    protected $listeners =['ingredientInfo'=>'getIngerdients'];
+    public $alphabet;
+    public $ingredientsAlphabetically; 
     
     // Get all ingredients when the component is first mounted
         public function mount(){
@@ -26,11 +25,13 @@ class AllIngredients extends Component
     // Get all ingredients by alphabet
         public function getIngerdientsAlphabetically($alphabet){
             $this->ingredientsAlphabetically = DB::table('ingredients')->where('name','like',$alphabet.'%')->orderBy('name')->get();
+            $this->alphabet=$alphabet;
+            return $this->alphabet;
         }
 
     // Get information about an ingredient
         public function ingredientInfo($apiIngredientId){
             $this->emit('ingredientInfo',$apiIngredientId);
-            $this->getIngerdients();
+            $this->getIngerdientsAlphabetically($this->alphabet);
         }  
 }

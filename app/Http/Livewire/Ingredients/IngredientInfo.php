@@ -41,7 +41,7 @@ class IngredientInfo extends Component
     public function getIngredientRecipes($ingredientName){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/findByIngredients?', [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
-            'number'=>8,
+            'number'=>6,
             'ingredients'=>$ingredientName,
         ]);
         $this->ingredientRecipes = $response->json();
@@ -60,6 +60,3 @@ class IngredientInfo extends Component
     }
 
 }
-// https://api.spoonacular.com/recipes/findByIngredients?ingredients={{ $ingredientName }}&number=8
-// GET https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+flour,+sugar&number=2
-// GET https://api.spoonacular.com/food/ingredients/9266/information?apiKey=3727e8e26c9241faba401b1d59156e31&amount=1
