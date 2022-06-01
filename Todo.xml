@@ -1,0 +1,64 @@
+---------------------------------------------------------------------------------------
+Create Table Ingredients_users :id, user_id, ingredient_id, amount, unit, date
+modal many to many rolations
+---------------------------------------------------------------------------------------
+BTN component   Ingreient Info  
+                Ingredient Card in Show recipe and mijn Ingredients------------
+    btn component  
+    call the Modal view with parameter add or edit
+    onclick Modal->
+            if ingredient not exists in mijn ingredients: 
+                add  -> modal with :name , amount, unit, date -> post 
+            else: 
+                edit -> modal with :name, amount, unit, data -> post method put
+
+        btn for add  ingredient to user in  database  :
+        Table Ingredients_users : id, user_id, ingredient_id, amount, unit, date
+
+        onclick -> function with apiIngredientId 
+                -> get the ingredient_id where apiIngredientId= apiIngredientId in table ingredients 
+                -> get the user_id auth
+                -> post : user_id, ingredient_id, amount, unit, date
+*******************************************************************************************
+--HOME-----------------------------------------------------------------------
+    component mijn-ingredients
+    get from table ingredients_users :
+        apiIngredientId, image, name , amount, unit, date where user_id = auth.user_id
+
+    show the data with select
+    -----------------------------------------------------------------------------
+    component mijn-ingredients-recipes
+    if the ingredient is selected add it to api request to get recipes
+-----------------------------------------------------------------------------
+********************************************************************************************
+--Recipe Card----------------------------------------------------------------
+    btn component use-recipe
+
+    if mijn-ingredients array are the same as the recipe extendedIngredients
+        -> show the btn
+
+--------------------------------------------------------------------------------------
+********************************************************************************************
+--Recipes----------------------------------------------------------------
+    Meal Types: creat table Meals "seeder factory" id name
+    Sorting Options: creat table Sorts "seeder factory" id name
+    show all recipes with options : meal types
+    btn's with value meal type from database
+    get recipes with meal types
+---------------------------------------------------------------
+    My favorite recipes
+
+--------------------------------------------------------------------------------------
+********************************************************************************************
+--search----------------------------------------------------------------
+????????????????
+--------------------------------------------------------------------------------------
+********************************************************************************************
+--About Us----------------------------------------------------------------
+Ali
+--------------------------------------------------------------------------------------
+********************************************************************************************
+--Profile Modal----------------------------------------------------------------
+Ali
+---------------------------------------------------------------------------------------
+********************************************************************************************
