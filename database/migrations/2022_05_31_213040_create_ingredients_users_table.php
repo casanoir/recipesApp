@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('ingredient_id')->nullable()->constrained();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->float('amount');
-            $table->date('date');
+            $table->string('unit');
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }
