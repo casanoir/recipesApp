@@ -21,7 +21,7 @@
                 <div class="row mt-2">
                     <div class="col-12 g-0 d-flex justify-content-center">
                         <p class="px-4">
-                            Please enter your name, email, password and then confirm your password to register
+                            Please enter your firstname,lastname, email, password and then confirm your password to register
                         </p>
                     </div><!--col-12-->
                 </div><!--row-->
@@ -33,8 +33,22 @@
                             <i class="fas fa-user ms-2"></i>
                         </div><!--col-2-->
                         <div class="col-10 g-0 loginInputEnd">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="name" required autocomplete="name" autofocus>
-                            @error('name')
+                            <input id="firstName" type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" value="{{ old('firstName') }}" placeholder="firstName" required autocomplete="firstName" autofocus>
+                            @error('firstName')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div><!--col-10-->
+                    </div><!--row-->
+                    {{-- test --}}
+                    <div class="row mt-3 mx-3" id="loginFirstInput">
+                        <div class="col-2 g-0 d-flex align-items-center loginInputStart">
+                            <i class="fas fa-user ms-2"></i>
+                        </div><!--col-2-->
+                        <div class="col-10 g-0 loginInputEnd">
+                            <input id="lastName" type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName" value="{{ old('lastName') }}" placeholder="lastName" required autocomplete="lastName" autofocus>
+                            @error('lastName')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
