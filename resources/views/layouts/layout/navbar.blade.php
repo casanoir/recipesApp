@@ -73,7 +73,7 @@
                 <!-- Right Side Of Navbar -->
                     <li class="nav-item dropdown ms-5">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->firstName }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown" data-toggle="modal" data-target="#profileModal"">
@@ -103,7 +103,7 @@
                                     </button>
                                 </div>
                                <div class="modal-body">
-                                    {{ Auth::user()->name }}<hr>
+                                    {{ Auth::user()->firstName }}<hr>
                                     {{ Auth::user()->email }}<hr>
                                 </div>
                                 <div class="modal-footer">
