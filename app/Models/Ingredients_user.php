@@ -13,6 +13,7 @@ class Ingredients_user extends Model
         'user_id',
         'ingredient_id',
         'amount',
+        'unit',
         'date'
     ];
 }

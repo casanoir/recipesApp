@@ -1,5 +1,11 @@
 <div>
     @isset($apiIngredientId)
+    @livewire('ingredient-btn',[
+                                'btnRole'=>'add to my ingredients',
+                                'name' =>$ingredientData['name'],
+                                'units' =>$ingredientData['possibleUnits'],
+                                'apiIngredientId'=>$apiIngredientId
+                                ])
         {{-- Ingredient Name --}}
             <h3   style="text-align: center">{{$ingredientData['name']}}</h3>
         
