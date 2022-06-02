@@ -1,9 +1,10 @@
-
-<button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ingredientModal">
-     {{$btnRole}}
-</button>
+<div>
+    <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ingredientModal">
+        {{$btnRole}}
+    </button>
+     
     <!--START ingredientModal-->
-    <div class="modal fade" id="ingredientModal" tabindex="-1" aria-labelledby="ingredientModalLabel" aria-hidden="true" wire:ignore.self>
+    <div class="modal fade" id="ingredientModal" tabindex="-1" aria-labelledby="ingredientModalLabel" aria-hidden="true" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -16,4 +17,5 @@
     </div>
     <!--END ingredientModal--> 
 
+</div>
  

@@ -1,4 +1,4 @@
-<form wire:submit.prevent="submit">
+<div>
     <div class="modal-body">
         {{-- possible Units --}}
         <select class="form-select px-4 py-3 w-full rounded" wire:model="unit">
@@ -22,7 +22,6 @@
         
     </div>
     <div class="modal-footer">
-        <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" wire:click="submit"  class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+        <button type="button" wire:click="submit"  class="btn btn-primary" >Save</button>
     </div>
-</form>
+</div>

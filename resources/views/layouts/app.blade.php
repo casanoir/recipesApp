@@ -37,16 +37,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
     
+    
 </head>
 <body >
 
-    {{-- App content --}}
+    <!-- App content -->
     @yield('content')
 
 
  
 
-    {{-- livewire Script --}}
+    <!-- livewire Script -->
     @livewireScripts
+    <!-- Modals Js -->
+    <script>
+        window.addEventListener('closeModal', event => {
+            $("#ingredientModal").modal('hide');
+        })
+        </script>
 </body>
 </html>

@@ -12,7 +12,14 @@ class IngredientBtn extends Component
     public $name;
     public $units;
 
-    protected $listeners =['ingredientInfo'=>'$refresh'];
+    protected $listeners =[
+        'ingredientInfo'=>'update',
+        'ingredientName'=>'updateName',
+        'ingredientUnits'=>'updateUnit',
+        'refreshParent'=>'$refresh',
+    ];
+   
+
 
     public function mount($btnRole,$apiIngredientId,$name,$units){
     }
@@ -22,4 +29,19 @@ class IngredientBtn extends Component
         return view('livewire.components.ingredient-btn');
     }
   
+    public function update($apiIngredientId){
+        
+        $this->apiIngredientId=$apiIngredientId;
+        return $this->apiIngredientId;
+    }
+    public function updateName($ingredientName){
+        
+        $this->name=$ingredientName;
+        return $this->name;
+    }
+    public function updateUnit($ingredientUnits){
+        
+        $this->units=$ingredientUnits;
+        return $this->units;
+    }
 }

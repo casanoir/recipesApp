@@ -34,7 +34,9 @@ class RecipeIngredients extends Component
     // Show ingredient info 
     public function ingredientInfo($ingredientId){
 
-        
+        // $this->emit( 'ingredientInfo',$ingredientId);
+        // dd($ingredientId);
+        return view('dashboard.ingredients');
     }
 
     

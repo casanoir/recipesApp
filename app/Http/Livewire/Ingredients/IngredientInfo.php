@@ -25,6 +25,7 @@ class IngredientInfo extends Component
             'amount' => 1,
         ]);
         $this->ingredientData = $response->json();
+        $this->emit('ingredientUnits',$this->ingredientData['possibleUnits']);
         return $this->ingredientData;
     }
 
@@ -53,7 +54,7 @@ class IngredientInfo extends Component
         
         $this->apiIngredientId=$apiIngredientId;
         $this->ingredientName = DB::table('ingredients')->where('apiIngredientId','like',$apiIngredientId)->get('name');
-        
+        $this->emit('ingredientName',$this->ingredientName[0]->name);
         $this->getIngredientInfo($apiIngredientId);
         $this->getIngredientSubstitutes($apiIngredientId);
         $this->getIngredientRecipes($this->ingredientName[0]->name);
