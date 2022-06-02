@@ -14,8 +14,8 @@ use App\Http\Controllers\AppController;
 |
 */
 
-Route::view('/','index');
-Route::view('/about', 'about')->name('about');
+Route::view('/','pages.index');
+Route::view('/about', 'pages.about')->name('about');
 
 
 Auth::routes();

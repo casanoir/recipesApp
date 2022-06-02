@@ -31,6 +31,12 @@ class RecipeIngredients extends Component
         return $this->extendedIngredients;
     }
 
+    // Show ingredient info 
+    public function ingredientInfo($ingredientId){
+
+        
+    }
+
     
 }
 

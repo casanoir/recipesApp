@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Components;
 
 use Livewire\Component;
 use App\Models\Ingredients_user;
@@ -19,7 +19,7 @@ class IngredientBtn extends Component
 
     public function render()
     {
-        return view('livewire.ingredient-btn');
+        return view('livewire.components.ingredient-btn');
     }
   
 }

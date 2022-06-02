@@ -1,6 +1,6 @@
 <div>
     @isset($apiIngredientId)
-    @livewire('ingredient-btn',[
+    @livewire('components.ingredient-btn',[
                                 'btnRole'=>'add to my ingredients',
                                 'name' =>$ingredientData['name'],
                                 'units' =>$ingredientData['possibleUnits'],
