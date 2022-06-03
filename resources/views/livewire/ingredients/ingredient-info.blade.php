@@ -13,7 +13,6 @@
                                         'name' =>$ingredientData['name'],
                                         'units' =>$ingredientData['possibleUnits'],
                                         'apiIngredientId'=>$apiIngredientId,
-                                        // 'ingredientId' =>$myIngredientsId
                                         ])
         @endif
         {{-- Ingredient Name --}}

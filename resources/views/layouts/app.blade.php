@@ -59,7 +59,7 @@
                 text: event.detail.text,
                 icon: event.detail.type,
             });
-            // $("#ingredientModal").modal('hide');
+            $("#ingredientModal").modal('hide');
         })
     </script>
 </body>
