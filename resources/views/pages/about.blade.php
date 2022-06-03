@@ -8,33 +8,30 @@
 <hr>
 <div class="container">
     <div class="row">
-        <div class="col-4 abdo">
-            <img src="/images/abdo.img" class="circle">
-            <a style="width: 100%;" class="btn btn-primary m-3" href="https://www.linkedin.com/in/abderrahmane-mendoun-920421223/" target="_blank">Abderrahmane Mendoun</a> 
-            <p>
-            Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een pagina, afgeleid wordt door de tekstuele inhoud. Het belangrijke punt van het gebruik van Lorem Ipsum is dat het uit een min of meer normale verdeling van letters bestaat,
-            </p>
-        </div>
-        {{-- berre --}}
-        <div class="col-4 berre">
-            <img src="/images/berre.img" class="circle">
-            <a style="width: 100%;"  class="btn btn-primary m-3" href="https://www.linkedin.com/in/berre-vandendorpe-14a328227/" target="_blank">Berre Vandendorpe</a> 
-            <p>
-            Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een pagina, afgeleid wordt door de tekstuele inhoud. Het belangrijke punt van het gebruik van Lorem Ipsum is dat het uit een min of meer normale verdeling van letters bestaat,
-            </p>
-        </div>
-        {{-- ali --}}
-        <div class="col-4 ali">
-            <img src="/images/ali.img" class="circle">
-            <a style="width: 100%;"  class="btn btn-primary m-3" href="https://www.linkedin.com/in/ali-el-baz-827a9b172/" target="_blank">ALI</a> 
-            <p>
-            Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een pagina, afgeleid wordt door de tekstuele inhoud. Het belangrijke punt van het gebruik van Lorem Ipsum is dat het uit een min of meer normale verdeling van letters bestaat,
-            </p>
-        </div>
+
+        @livewire('components.about-us-card',
+        [
+            'aboutUsImgUrl' =>'https://media-exp1.licdn.com/dms/image/C4E03AQGlbMGpRa-vFA/profile-displayphoto-shrink_200_200/0/1640533440722?e=1659571200&v=beta&t=gLTVn6vQ95SWyvDG1u7V6nMh12ouJ0u-fgd6-7nU0Ko',
+            'linkedinAccount'=>'ali-el-baz-827a9b172',
+            'linkedinName'=> 'ali elbaz'
+        ])
+        @livewire('components.about-us-card',
+        [
+            'aboutUsImgUrl' =>'https://media-exp1.licdn.com/dms/image/C4E03AQF7nTtvMWR9nA/profile-displayphoto-shrink_200_200/0/1638176785211?e=1659571200&v=beta&t=_wDqljIQNU_5YGTPlPLEmVu9_6VbneV5ywFM7j99lNU',
+            'linkedinAccount'=>'berre-vandendorpe-14a328227/',
+            'linkedinName'=> 'Berre vandendorpe'
+        ])
+        @livewire('components.about-us-card',
+        [
+            'aboutUsImgUrl' =>'https://media-exp1.licdn.com/dms/image/C4E03AQGSK6W60lQFSA/profile-displayphoto-shrink_200_200/0/1653044300776?e=1659571200&v=beta&t=mFa00vj7ll4K-BRGsCYlFRQL_o0LxS5vMi7CdCRey_4',
+            'linkedinAccount'=>'abderrahmane-mendoun-920421223/',
+            'linkedinName'=> 'Abderahmane mendoun'
+        ])
     </div>
-        <div class = "row">
+    
+    <div class = "row">
         <h3>contact formulier</h3>
-        </div>
+    </div>
         
 </div>
 @endsection
