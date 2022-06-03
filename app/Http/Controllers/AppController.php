@@ -25,14 +25,18 @@ class AppController extends Controller
     {
         return view('dashboard.home');
     }
+
     public function dashboardRecipes()
     {
         return view('dashboard.recipes.recipes');
     }
+
     public function dashboardShowRecipe($recipeId)
     {
         return view('dashboard.recipes.show-recipe',compact('recipeId'));
     }
+
+    
     public function dashboardIngredients()
     {
         return view('dashboard.ingredients');

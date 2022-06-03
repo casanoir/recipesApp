@@ -18,6 +18,11 @@ class AddIngredientModal extends Component
     public $date;
     
 
+    protected $listeners =[
+        'ingredientInfo'=>'update',
+        'ingredientUnits'=>'updateUnit',
+        
+    ];
     public function mount($apiIngredientId,$units){
         $this->ingredientId = DB::table('ingredients')->where('apiIngredientId',$apiIngredientId)->value('id');
     }
@@ -32,6 +37,10 @@ class AddIngredientModal extends Component
         $this->amount = null;
     }
     public function submit(){
+        $this->validate([
+            'unit' => 'required',
+            'amount' => 'required ',
+        ]);
     
         Ingredients_user::create([
             'user_id' => Auth::id(),
@@ -41,8 +50,23 @@ class AddIngredientModal extends Component
             'date' => $this->date,
             ]
         );
+        $this->emit('refreshParent');
+        $this->dispatchBrowserEvent('closeModal');
         $this->resetInput();
 
-    
+    }
+
+    public function getIngredientId($apiIngredientId){
+        $this->ingredientId = DB::table('ingredients')->where('apiIngredientId',$apiIngredientId)->value('id');
+        return $this->ingredientId;
+    }
+    public function update($apiIngredientId){
+        $this->apiIngredientId=$apiIngredientId;
+        $this->getIngredientId($apiIngredientId);
+        return $this->apiIngredientId;
+    }
+    public function updateUnit($ingredientUnits){
+        $this->units=$ingredientUnits;
+        return $this->units;
     }
 }
