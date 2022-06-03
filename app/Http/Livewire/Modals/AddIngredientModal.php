@@ -51,7 +51,13 @@ class AddIngredientModal extends Component
             ]
         );
         $this->emit('refreshParent');
-        $this->dispatchBrowserEvent('closeModal');
+        // $this->dispatchBrowserEvent('closeModal');
+        $this->dispatchBrowserEvent('swal:modal',[
+            'type' => 'success',
+            'title' => 'Ingredient added successfully',
+            'text' => '',
+        ]);
+
         $this->resetInput();
 
     }

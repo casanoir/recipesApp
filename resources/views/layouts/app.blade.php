@@ -50,11 +50,17 @@
 
     <!-- livewire Script -->
     @livewireScripts
-    <!-- Modals Js -->
+    <!-- sweetalert Js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        window.addEventListener('closeModal', event => {
-            $("#ingredientModal").modal('hide');
+        window.addEventListener('swal:modal', event => {
+            swal({
+                title: event.detail.title,
+                text: event.detail.text,
+                icon: event.detail.type,
+            });
+            // $("#ingredientModal").modal('hide');
         })
-        </script>
+    </script>
 </body>
 </html>
