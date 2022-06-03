@@ -60,6 +60,7 @@
                 icon: event.detail.type,
             });
             $("#ingredientModal").modal('hide');
+            $("#contactModal").modal('hide');
         })
     </script>
 </body>

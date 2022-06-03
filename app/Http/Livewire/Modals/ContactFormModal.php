@@ -42,9 +42,19 @@ class ContactFormModal extends Component
             'message' => $this->message,
             ]);
 
-        
-
-        return redirect()->back()->with(['success' => 'Contact Form Submit Successfully']);
+            $this->dispatchBrowserEvent('swal:modal',[
+                'type' => 'success',
+                'title' => 'Contact Form Submit Successfully',
+                'text' => '',
+            ]);
+            $this->resetData();
     }
 
+    public function resetData() {
+        $this-> name = null;
+            $this-> email = null;
+            $this-> phone = null;
+            $this-> subject = null;
+            $this-> message = null;
+    }
 }
