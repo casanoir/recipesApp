@@ -30,7 +30,9 @@
     </div>
     
     <div class = "row">
-        <h3>contact formulier</h3>
+        <div class="col-8 offset-2 mt-5">
+                @livewire('modals.contact-form-modal')
+        </div>
     </div>
         
 </div>
