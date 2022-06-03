@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Components;
 
 use Livewire\Component;
 use App\Models\Ingredients_user;
+use Illuminate\Support\Facades\Auth;
+
 
 class IngredientBtn extends Component
 {
@@ -44,4 +46,15 @@ class IngredientBtn extends Component
         $this->units=$ingredientUnits;
         return $this->units;
     }
+
+    // public function updateName($ingredientName,$myIngredientsId){
+    //     $this->getMyIngredientInfo($myIngredientId);
+    //     $this->name=$ingredientName;
+    //     return $this->name;
+    // }
+
+    // public function getMyIngredientInfo($id){
+    //     $this->myIngredient = DB::table('ingredients_users') ->where('id',$id)->get();
+    //     return $this->myIngredient;
+    // }
 }
