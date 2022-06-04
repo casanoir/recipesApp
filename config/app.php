@@ -194,9 +194,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+// ServiceProvider 
+Barryvdh\Debugbar\ServiceProvider::class,
     ],
-
+//Facade 
+'Debugbar' => Barryvdh\Debugbar\Facade::class,
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
