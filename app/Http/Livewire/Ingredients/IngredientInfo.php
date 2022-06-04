@@ -16,7 +16,7 @@ class IngredientInfo extends Component
     public $ingredientData;
     public $ingredientSubstitutes;
     public $ingredientRecipes;
-    public $action;
+    public $btnAction;
 
     protected $listeners =[
         // allIngredients
@@ -76,17 +76,17 @@ class IngredientInfo extends Component
         
         // 4*check if the user has already the ingredient
         if (in_array($this->ingredientId, $this->myIngredientsId)){
-            $this->action = "edit";
-            return $this->action;
+            $this->btnAction = "edit";
+            return $this->btnAction;
         }
         else{
-            return $this->action ="add";
+            return $this->btnAction ="add";
         }
     }
 
     // the updateAction method luisteners to save btn in the add ingredient modals  
     public function updateBtnAction(){
-        return $this->action ="edit";
+        return $this->btnAction ="edit";
     }
 
     // Update Method nested with AllIngredients Blade ->Btn show ingeredient info

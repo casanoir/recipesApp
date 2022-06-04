@@ -3,31 +3,48 @@
 namespace App\Http\Livewire\Modals;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Ingredients_user;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
-class AddIngredientModal extends Component
+
+class EditIngredientModal extends Component
 {
     public $ingredientId;
     public $units=['g','ml','pieces'];
-
+    public $ingredientUserData;
     public $unit;
     public $amount;
     public $date;
-    
+
     protected $listeners =[
         'emitIngredientId'=>'update',
     ];
+
+    public function mount(){
+
+    }
+
+    public function render()
+    {
+        return view('livewire.modals.edit-ingredient-modal');
+    }
+    
+   
         
     // Update Method nested with Ingredient Info Blade ->check ingeredient in the database
     public function update($ingredientId){
         $this->ingredientId=$ingredientId;
-        return $this->ingredientId;
+        $this->ingredientUserData= DB::table('ingredients_users')->where('user_id',Auth::user()->id)
+                                ->where('ingredient_id',$ingredientId)
+                                ->get();
+        $this->unit=$this->ingredientUserData[0]->unit;
+        $this->amount=$this->ingredientUserData[0]->amount;
+        return $this->ingredientUserData;
     }
 
     // store the data to the database "Create ingredients_user"
-    public function submit(){
+    public function edit(){
 
         // check the input fields
         $this->validate([
@@ -36,7 +53,7 @@ class AddIngredientModal extends Component
         ]);
     
         // Add the ingredient to the user
-        Ingredients_user::create([
+        Ingredients_user::Update([
             'user_id' => Auth::id(),
             'ingredient_id' => $this->ingredientId,
             'unit' => $this->unit,
@@ -45,9 +62,6 @@ class AddIngredientModal extends Component
             ]
         );
 
-        // update the btnAction to edit 
-        $this->emit('refreshBtnAction');
-
         // Sweet Alert
         $this->dispatchBrowserEvent('swal:modal',[
             'type' => 'success',
@@ -55,18 +69,6 @@ class AddIngredientModal extends Component
             'text' => '',
         ]);
 
-        // reset the input fields
-        $this->resetInput();
-
     }
 
-    // reset the from after submit
-    private function resetInput()
-    {
-        $this->unit = null;
-        $this->date = null;
-        $this->amount = null;
-    }
-    
-    
 }

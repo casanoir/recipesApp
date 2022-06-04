@@ -1,12 +1,12 @@
 <div>
     @isset($apiIngredientId)
-        @if ($action == 'add')
+        @if ($btnAction == 'add')
             @livewire('components.ingredient-btn',[
-                                        'btnAction'=>'add to my ingredients',
+                                        'btnAction'=>'add',
                                         ])
         @else
             @livewire('components.ingredient-btn',[
-                                        'btnAction'=>'Edit',
+                                        'btnAction'=>'edit',
                                         ])
         @endif
         {{-- Ingredient Name --}}
