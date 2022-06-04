@@ -2,17 +2,11 @@
     @isset($apiIngredientId)
         @if ($action == 'add')
             @livewire('components.ingredient-btn',[
-                                        'btnRole'=>'add to my ingredients',
-                                        'name' =>$ingredientData['name'],
-                                        'units' =>$ingredientData['possibleUnits'],
-                                        'apiIngredientId'=>$apiIngredientId
+                                        'btnAction'=>'add to my ingredients',
                                         ])
         @else
             @livewire('components.ingredient-btn',[
-                                        'btnRole'=>'Edit',
-                                        'name' =>$ingredientData['name'],
-                                        'units' =>$ingredientData['possibleUnits'],
-                                        'apiIngredientId'=>$apiIngredientId,
+                                        'btnAction'=>'Edit',
                                         ])
         @endif
         {{-- Ingredient Name --}}

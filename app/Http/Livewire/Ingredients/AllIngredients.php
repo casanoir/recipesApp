@@ -31,7 +31,7 @@ class AllIngredients extends Component
 
     // Get information about an ingredient
         public function ingredientInfo($apiIngredientId){
-            $this->emit('ingredientInfo',$apiIngredientId);
+            $this->emit('emitApiIngredientId',$apiIngredientId);
             $this->getIngerdientsAlphabetically($this->alphabet);
         }  
 }

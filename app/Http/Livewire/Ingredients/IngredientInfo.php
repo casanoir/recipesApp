@@ -19,8 +19,10 @@ class IngredientInfo extends Component
     public $action;
 
     protected $listeners =[
-        'ingredientInfo'=>'update',
-        'refreshParent'=>'updateAction',
+        // allIngredients
+        'emitApiIngredientId'=>'update',
+        // btn add ingredient submit
+        'refreshBtnAction'=>'updateBtnAction',
     ];
 
 
@@ -30,8 +32,8 @@ class IngredientInfo extends Component
             'apiKey'=>env('SPOONACULAR_API_KEY'),
             'amount' => 1,
         ]);
+        
         $this->ingredientData = $response->json();
-        $this->emit('ingredientUnits',$this->ingredientData['possibleUnits']);
         return $this->ingredientData;
     }
 
@@ -40,22 +42,39 @@ class IngredientInfo extends Component
         $response = Http::acceptJson()->get('https://api.spoonacular.com/food/ingredients/'.$id.'/substitutes', [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
         ]);
+        
         $this->ingredientSubstitutes = $response->json();
         return $this->ingredientSubstitutes;
     }
     
-    // Get 8 Recipes by Ingredient.
+    // Get 6 Recipes by Ingredient.
     public function getIngredientRecipes($ingredientName){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/findByIngredients?', [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
             'number'=>6,
             'ingredients'=>$ingredientName,
         ]);
+        
         $this->ingredientRecipes = $response->json();
         return $this->ingredientRecipes;
     }
 
-    public function checkIngredient($ingredientId,$myIngredientsId){
+    // check of the user has the ingredient ?? and change the action from add to edit
+    public function checkIngredient($apiIngredientId){
+        
+        // 1* get the ingredient Id from database with apiIngredientId
+        $this->ingredientId=DB::table('ingredients')->where('apiIngredientId',$apiIngredientId)->value('id');
+        
+        // emit the ingredientId for add ingredient modals
+        $this->emit('emitIngredientId',$this->ingredientId);
+
+        // 2* get the user Id 
+        $this->user_id= Auth::user()->id;
+
+        // 3*get the ingredients id's ,that the user has.
+        $this->myIngredientsId = DB::table('ingredients_users')->where('user_id',$this->user_id)->pluck('ingredient_id')->toArray();
+        
+        // 4*check if the user has already the ingredient
         if (in_array($this->ingredientId, $this->myIngredientsId)){
             $this->action = "edit";
             return $this->action;
@@ -65,7 +84,8 @@ class IngredientInfo extends Component
         }
     }
 
-    public function updateAction(){
+    // the updateAction method luisteners to save btn in the add ingredient modals  
+    public function updateBtnAction(){
         return $this->action ="edit";
     }
 
@@ -73,20 +93,26 @@ class IngredientInfo extends Component
     public function update($apiIngredientId){
         
         $this->apiIngredientId=$apiIngredientId;
-
-        $this->ingredientId=DB::table('ingredients')->where('apiIngredientId',$apiIngredientId)->value('id');
-        $this->user_id= Auth::user()->id;
-
-        $this->myIngredientsId = DB::table('ingredients_users')->where('user_id',$this->user_id)->pluck('ingredient_id')->toArray();
         
-        $this->checkIngredient($this->ingredientId,$this->myIngredientsId);
-
-        $this->ingredientName = DB::table('ingredients')->where('apiIngredientId','like',$apiIngredientId)->get('name');
-        $this->emit('ingredientName',$this->ingredientName[0]->name);
+        // check if the user has already the ingredient
+        $this->checkIngredient($apiIngredientId);
         
+        // show ingredient information 
         $this->getIngredientInfo($apiIngredientId);
-        $this->getIngredientSubstitutes($apiIngredientId);
+        
+        // show ingredient Substitutes 
+        $this->getIngredientSubstitutes($apiIngredientId);    
+        
+        // get the ingredient name from database 
+        $this->ingredientName = DB::table('ingredients')->where('apiIngredientId','like',$apiIngredientId)->get('name');
+        // after getting the name search for the recipes show ingredient Substitutes 
         $this->getIngredientRecipes($this->ingredientName[0]->name);
+        
+        // emit the name for  ingredient button
+        $this->emit('ingredientName',$this->ingredientName[0]->name);
+
+        
+        
     }
 
 }

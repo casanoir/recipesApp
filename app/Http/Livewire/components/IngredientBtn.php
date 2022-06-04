@@ -9,52 +9,22 @@ use Illuminate\Support\Facades\Auth;
 
 class IngredientBtn extends Component
 {
-    public $apiIngredientId;
-    public $btnRole;
+    public $btnAction;
     public $name;
-    public $units;
 
     protected $listeners =[
-        'ingredientInfo'=>'update',
-        'ingredientName'=>'updateName',
-        'ingredientUnits'=>'updateUnit',
-        'refreshParent'=>'$refresh',
+        'ingredientName'=>'update',
     ];
    
-
-
-    public function mount($btnRole,$apiIngredientId,$name,$units){
-    }
-
+    // render the  component with parameter btnAction
     public function render()
     {
-        return view('livewire.components.ingredient-btn');
+        return view('livewire.components.ingredient-btn',['btnAction'=>$this->btnAction]);
     }
-  
-    public function update($apiIngredientId){
-        
-        $this->apiIngredientId=$apiIngredientId;
-        return $this->apiIngredientId;
-    }
-    public function updateName($ingredientName){
-        
+   // Update Method nested with Ingredient Info Blade -> update Action
+    public function update($ingredientName){
         $this->name=$ingredientName;
         return $this->name;
     }
-    public function updateUnit($ingredientUnits){
-        
-        $this->units=$ingredientUnits;
-        return $this->units;
-    }
-
-    // public function updateName($ingredientName,$myIngredientsId){
-    //     $this->getMyIngredientInfo($myIngredientId);
-    //     $this->name=$ingredientName;
-    //     return $this->name;
-    // }
-
-    // public function getMyIngredientInfo($id){
-    //     $this->myIngredient = DB::table('ingredients_users') ->where('id',$id)->get();
-    //     return $this->myIngredient;
-    // }
+  
 }

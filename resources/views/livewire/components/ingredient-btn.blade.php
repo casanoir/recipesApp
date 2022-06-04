@@ -1,6 +1,6 @@
 <div>
     <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ingredientModal">
-        {{$btnRole}}
+        {{$btnAction}}
     </button>
      
     <!--START ingredientModal-->
@@ -11,7 +11,7 @@
                     <h3 class="modal-title" id="ingredientModalLabel">{{$name}}</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                @livewire('modals.add-ingredient-modal',['apiIngredientId'=>$apiIngredientId,'units' =>$units])
+                @livewire('modals.add-ingredient-modal')
             </div>
         </div>
     </div>
