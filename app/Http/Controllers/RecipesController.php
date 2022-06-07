@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AppController extends Controller
+class RecipesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,10 +21,15 @@ class AppController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function dashboardHome()
+
+    public function dashboardRecipes()
     {
-        return view('dashboard.home');
+        return view('dashboard.recipes.recipes');
     }
 
+    public function dashboardShowRecipe($recipeId)
+    {
+        return view('dashboard.recipes.show-recipe',compact('recipeId'));
+    }
 
 }

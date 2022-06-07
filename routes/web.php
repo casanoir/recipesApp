@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\RecipesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,13 @@ Route::view('/about', 'pages.about')->name('about');
 
 Auth::routes();
 
-Route::controller(AppController::class)->group(function () {
-    Route::get('/home', 'dashboardHome')->name('home');
+Route::get('/home', [AppController::class, 'dashboardHome'])->name('home');
+
+
+Route::controller(RecipesController::class)->group(function () {
     Route::get('/recipes', 'dashboardRecipes')->name('recipes');
     Route::get('/recipe/{recipeId}', 'dashboardShowRecipe')->name('showRecipe');
-    Route::get('/ingredients', 'dashboardIngredients')->name('ingredients');
 });
+
+
+Route::get('/ingredients', [IngredientController::class, 'dashboardIngredients'])->name('ingredients');
