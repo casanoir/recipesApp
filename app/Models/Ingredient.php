@@ -14,4 +14,8 @@ class Ingredient extends Model
         'image',
         'apiIngredientId'
     ];
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'ingredients_users');
+    }
 }

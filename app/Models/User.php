@@ -23,7 +23,10 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    public function ingredients()
+    {
+        return $this->belongsToMany(Ingredient::class, 'ingredients_users');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
