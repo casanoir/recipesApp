@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\RecipesController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,7 @@ use App\Http\Controllers\RecipesController;
 */
 
 Route::view('/','pages.index');
-Route::view('/about', 'pages.about')->name('about');
-
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Auth::routes();
 
