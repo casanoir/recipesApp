@@ -13,6 +13,7 @@ class EditIngredientModal extends Component
     public $ingredientId;
     public $units=['g','ml','pieces'];
     public $ingredientUserData;
+    public $ingredientUserId;
     public $unit;
     public $amount;
     public $date;
@@ -38,13 +39,14 @@ class EditIngredientModal extends Component
         $this->ingredientUserData= DB::table('ingredients_users')->where('user_id',Auth::user()->id)
                                 ->where('ingredient_id',$ingredientId)
                                 ->get();
+        $this->ingredientUserId=$this->ingredientUserData[0]->id;
         $this->unit=$this->ingredientUserData[0]->unit;
         $this->amount=$this->ingredientUserData[0]->amount;
         return $this->ingredientUserData;
     }
 
     // store the data to the database "Create ingredients_user"
-    public function edit(){
+    public function edit($ingredientUserId){
 
         // check the input fields
         $this->validate([
@@ -53,7 +55,7 @@ class EditIngredientModal extends Component
         ]);
     
         // Add the ingredient to the user
-        Ingredients_user::Update([
+        Ingredients_user::where('id' , $ingredientUserId)->update([
             'user_id' => Auth::id(),
             'ingredient_id' => $this->ingredientId,
             'unit' => $this->unit,

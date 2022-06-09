@@ -22,6 +22,6 @@
         
     </div>
     <div class="modal-footer">
-        <button type="button" wire:click="edit"  class="btn btn-primary" >Save</button>
+        <button type="button" wire:click="edit({{$ingredientUserId}})"  class="btn btn-primary" >Save</button>
     </div>
 </div>
