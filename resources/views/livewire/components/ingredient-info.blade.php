@@ -1,13 +1,4 @@
 <div>
-        @if ($btnAction == 'add')
-            @livewire('components.ingredient-btn',[
-                                        'btnAction'=>'add',
-                                        ])
-        @else
-            @livewire('components.ingredient-btn',[
-                                        'btnAction'=>'edit',
-                                        ])
-        @endif
         {{-- Ingredient Name --}}
             <h3   style="text-align: center">{{$ingredientData['name']}}</h3>
         
