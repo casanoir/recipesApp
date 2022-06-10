@@ -6,14 +6,12 @@ use Livewire\Component;
 
 class AboutUsCard extends Component
 {
-    public $aboutUsImgUrl;
+    public $teamMembers;
 
-    public  $linkedinAccount;
-    public $linkedinName ;
+    public function mount($teamMembers){
+      $this->teamMembers = $teamMembers;
 
-    public function mount($aboutUsImgUrl,$linkedinAccount,$linkedinName){
-
-
+       
     }
 
 
