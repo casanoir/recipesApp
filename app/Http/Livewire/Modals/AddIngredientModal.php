@@ -31,8 +31,8 @@ class AddIngredientModal extends Component
 
         // check the input fields
         $this->validate([
-            'user_id' => 'required|nullable',
-            'ingredient_id' => 'required|nullable',
+            // 'user_id' => 'required|nullable',
+            // 'ingredient_id' => 'required|nullable',
             'unit' => 'required',
             'amount' => 'required ',
         ]);
