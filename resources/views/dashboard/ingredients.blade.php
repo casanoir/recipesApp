@@ -11,7 +11,7 @@
             </div>
         {{-- All Ingredients Alphabetically --}}
             <div class="col-md-9 " style="background-color:aquamarine">
-                @livewire('ingredients.ingredient-info')
+                @livewire('ingredients.show-ingredient')
             </div>
     </div>
 </div>

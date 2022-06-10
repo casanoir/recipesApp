@@ -31,18 +31,21 @@ class AddIngredientModal extends Component
 
         // check the input fields
         $this->validate([
+            // 'user_id' => 'required|nullable',
+            // 'ingredient_id' => 'required|nullable',
             'unit' => 'required',
             'amount' => 'required ',
         ]);
     
-        // Add the ingredient to the user
-        Ingredients_user::create([
+        $this->data=[
             'user_id' => Auth::id(),
             'ingredient_id' => $this->ingredientId,
             'unit' => $this->unit,
             'amount' => $this->amount,
             'date' => $this->date,
-            ]
+        ];
+        // Add the ingredient to the user
+        Ingredients_user::create($this->data
         );
 
         // update the btnAction to edit 

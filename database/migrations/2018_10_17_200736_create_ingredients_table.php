@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIngredientsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -32,8 +32,5 @@ class CreateIngredientsTable extends Migration
         Schema::dropIfExists('ingredients');
     }
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'ingredients_users');
-    }
-}
+    
+};

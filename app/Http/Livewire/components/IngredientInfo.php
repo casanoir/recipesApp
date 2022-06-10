@@ -10,21 +10,30 @@ use DB;
 class IngredientInfo extends Component
 {
     public $apiIngredientId;
-    public $ingredientId;
-    public $user_id;
     public $ingredientName;
     public $ingredientData;
     public $ingredientSubstitutes;
     public $ingredientRecipes;
-    public $btnAction;
 
     protected $listeners =[
         // allIngredients
-        // 'emitApiIngredientId'=>'update',
-        // btn add ingredient submit
-        'refreshIngredientInfo'=>'refreshIngredientInfo',
+        'emitApiIngredientId'=>'update',
+      
     ];
 
+    public function mount($apiIngredientId){
+        $this->apiIngredientId=$apiIngredientId;
+        
+        // show ingredient information 
+        $this->getIngredientInfo($apiIngredientId);
+        // show ingredient Substitutes 
+        $this->getIngredientSubstitutes($apiIngredientId);    
+        // get the ingredient name from database 
+        $this->ingredientName = DB::table('ingredients')->where('apiIngredientId','like',$apiIngredientId)->get('name');
+        // after getting the name search for the recipes show ingredient Substitutes 
+        $this->getIngredientRecipes($this->ingredientName[0]->name);
+        
+    }
 
     // Get all available information about an ingredient
     public function getIngredientInfo($id){
@@ -60,11 +69,6 @@ class IngredientInfo extends Component
     }
 
     
-
-    // the refreshIngredientInfo method luisteners to submit btn in the add ingredient modals  
-    public function refreshIngredientInfo(){
-        return $this->btnAction ="edit";
-    }
 
     // Update Method nested with AllIngredients Blade ->Btn show ingeredient info
     public function update($apiIngredientId){

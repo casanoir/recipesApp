@@ -35,8 +35,5 @@ return new class extends Migration
         Schema::dropIfExists('users');
     }
 
-    public function ingredients()
-    {
-        return $this->belongsToMany(Ingredient::class, 'ingredients_users');
-    }
+    
 };
