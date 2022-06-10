@@ -32,4 +32,6 @@ class RecipesController extends Controller
         return view('dashboard.recipes.show-recipe',compact('recipeId'));
     }
 
+    
+
 }
