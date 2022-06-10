@@ -8,7 +8,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="ingredientModalLabel">{{$name}}</h3>
+                        <h3 class="modal-title" id="ingredientModalLabel">{{$ingredientName}}</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     @livewire('modals.add-ingredient-modal')
@@ -25,7 +25,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" id="ingredientModalLabel">{{$name}}</h3>
+                        <h3 class="modal-title" id="ingredientModalLabel">{{$ingredientName}}</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     @livewire('modals.edit-ingredient-modal')
