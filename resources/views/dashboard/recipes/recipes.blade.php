@@ -11,6 +11,12 @@
        @livewire('components.meal-types')
        </div>
     </div>
+    <div class="row justify-content-center ">
+       
+       
+       @livewire('components.recipes-by-meal-type')
+       
+    </div>
    
 </div>
 @endsection
