@@ -1,14 +1,13 @@
 <div>
-    @isset($apiIngredientId)
-
-        @livewire('components.ingredient-btn',['apiIngredientId'=>$apiIngredientId])
-        
-        @livewire('components.ingredient-info',['apiIngredientId'=>$apiIngredientId])
-
-    @endisset
     @empty($apiIngredientId)
-
-        <h3 class="mt-3" style="text-align: center">The 1,000 most frequently used ingredients </h3>
-    
+        <div class="mainIngredient" >
+            <h3 class="mt-3" >Main ingredient</h3>
+            <p class="mt-4 mainIngredientDescription" >Knowing your way around a kitchen’s basic ingredients is seriously important and we’ve split the 1,000 most frequently used ingredients up by alphabeticly.</p>
+        </div>
     @endempty
+    @isset($apiIngredientId)
+    <div class="showIngredientDetails" >
+        @livewire('components.ingredient-info',['apiIngredientId'=>$apiIngredientId])
+    </div>
+    @endisset
 </div>
