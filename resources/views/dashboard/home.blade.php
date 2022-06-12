@@ -8,7 +8,7 @@
 <div class="container" >
     <div class="row justify-content-center ">
         <div class="col-md-3 " style="background-color: rgb(112, 225, 43)" >
-            Ingredients
+            @livewire('ingredients.my-ingredient')
         </div>
         <div class="col-md-9 " style="background-color:aquamarine">
             Recipes
