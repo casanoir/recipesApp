@@ -14,11 +14,11 @@ class IngredientInfo extends Component
     public $ingredientData;
     public $ingredientSubstitutes;
     public $ingredientRecipes;
+    
 
     protected $listeners =[
         // allIngredients
         'emitApiIngredientId'=>'update',
-      
     ];
 
     public function mount($apiIngredientId){
@@ -43,6 +43,8 @@ class IngredientInfo extends Component
         ]);
         
         $this->ingredientData = $response->json();
+        // dd($this->ingredientData['nutrition']['caloricBreakdown']['percentProtein']);
+
         return $this->ingredientData;
     }
 
