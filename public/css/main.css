@@ -2,6 +2,8 @@
 @import "navbarFooter.css";
 @import "about.css";
 @import "ingredients.css";
+@import "recipeCard.scss";
+
 
 body {
     margin-top: 0px !important;

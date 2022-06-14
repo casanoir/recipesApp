@@ -1,6 +1,7 @@
 <div>
-{{-- @foreach ($recipesByMealType as $recipesByMealType )
-    {{$recipesByMealType['title']}}
-@endforeach --}}
+@foreach ($recipesByMealType['recipes'] as $recipes)
+    @livewire('components.recipe-card',['recipes' => $recipes]) 
+@endforeach
+
 
 </div>
