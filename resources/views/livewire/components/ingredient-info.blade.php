@@ -76,17 +76,25 @@
               <section>
                 <h2>Recipes by Ingredient</h2>
 {{-- To do  --}}
+
                     @foreach ($ingredientRecipes as $recipe)
-                    <div class="recipe-card">
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body" style="background-image: url('https://spoonacular.com/recipeImages/{{$recipe['id']}}-312x231.jpg" alt="{{$recipe['title']}}')">
+                          <h5 class="card-title">{{$recipe['title']}}</h5>
+                          <p class="card-text">You need {{$recipe['missedIngredientCount']}} ingredients more to do that recipe.</p>
+                          <a href="/recipe/{{$recipe['id']}}" class="btn btn-primary">More details</a>
+                        </div>
+                      </div>
+                    {{-- <div class="recipe-card">
                         <img class="recipe-card-profile-img" src="https://spoonacular.com/recipeImages/{{$recipe['id']}}-312x231.jpg" alt="{{$recipe['title']}}">
-                        <div class="recipe-card-description-bk"><p>You need {{$recipe['missedIngredientCount']}} ingredients more to do that recipe.</p></div>
+                        <div class="ps-3 recipe-card-description-bk"><p>You need {{$recipe['missedIngredientCount']}} ingredients more to do that recipe.</p></div>
                         <div class="recipe-card-description">
                           <p>{{$recipe['title']}}</p>
                         </div>
                         <div class="recipe-card-btn">
                             <a href="/recipe/{{$recipe['id']}}" class="btn btn-primary">More details</a>
                         </div>
-                      </div>
+                      </div> --}}
                     @endforeach
 
 {{-- To do  --}}
@@ -94,11 +102,14 @@
               </section>
               <section>
                 <h2>Caloric Breakdown</h2>
-                <div>
+                {{-- <div>
                     @foreach($ingredientData['nutrition']['caloricBreakdown'] as $key => $value)
                     <span>{{$key}}: {{$value}} %</span>
                     @endforeach
-                </div>
+                </div> --}}
+                <div style="height: 32rem;">
+                    @livewire('components.caloric-breakdown-pie-chart')
+                 </div>
               </section>
               <section>
                 <h2>Ingredient Substitutes</h2>
