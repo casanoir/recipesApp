@@ -2,12 +2,11 @@
     <div class="row1 ">
         <div class="div-ingredient-image">
             {{-- Ingredient Image --}}
-            <img style="height: 100px;width: 100px;" src="https://spoonacular.com/cdn/ingredients_100x100/{{$ingredientData['image']}}" alt="{{$ingredientData['name']}}">
+            <img style="height: 90px;width: 100px;" src="https://spoonacular.com/cdn/ingredients_100x100/{{$ingredientData['image']}}" alt="{{$ingredientData['name']}}">
         </div>
         <div class="div-ingredient-name">
             {{-- Ingredient Name --}}
             <h3 >{{$ingredientData['name']}}</h3>
-        </div>
             @if($ingredientData['categoryPath'])
         <div class="div-category-path">
             {{-- ingredientData-categoryPath  --}}
@@ -17,6 +16,8 @@
             @endforeach
         </div>
         @endif
+        </div>
+            
         <div class="div-ingredient-btn">
             @livewire('components.ingredient-btn',['apiIngredientId'=>$apiIngredientId])
             <button class="btn-pdf">Pdf</button>
