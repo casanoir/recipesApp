@@ -84,16 +84,19 @@
                         </div><!--col-12-->
                     </div><!---row-->
 
-                    <div class="row mt-2 mx-3"  id="loginLastInput">
+                    <div class="row mt-2 mx-3" id="loginLastInput">
                         <div class="col-2 g-0 d-flex align-items-center loginInputStart">
                             <i class="fas fa-key ms-2"></i>
                         </div><!--col-2-->
                         <div class="col-10 g-0 loginInputEnd">
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="comfirm password" required autocomplete="new-password">
-                            </div>
-                        </div><!--col-12-->
-                    </div><!---row-->
+                        <input id="password-confirm" type="password" class="form-control @error('password-confirm') is-invalid @enderror" name="password_confirmation" placeholder="password" required autocomplete="new-password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </div><!--col-10-->
+                    </div><!--row-->
 
                     <div class="row mt-4 mx-3">
                         <div class="col-5 g-0">
