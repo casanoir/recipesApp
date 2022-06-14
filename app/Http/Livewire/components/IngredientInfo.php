@@ -62,7 +62,7 @@ class IngredientInfo extends Component
     public function getIngredientRecipes($ingredientName){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/findByIngredients?', [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
-            'number'=>6,
+            'number'=>8,
             'ingredients'=>$ingredientName,
         ]);
         
