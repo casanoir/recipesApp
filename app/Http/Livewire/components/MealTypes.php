@@ -3,17 +3,24 @@
 namespace App\Http\Livewire\Components;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Http;
 use DB;
 
 class MealTypes extends Component
 {
-    public $meal;
-
-    public function mount()
+    public function render()
     {
-        $this-> meal= DB::table('meal_types')->get('name');
-            return $this->meal;
+        // $mealtypes = \App\Models\MealType::get();
+        $mealtypes= DB::table('meal_types')->get();
 
+        return view('livewire.components.meal-types',['mealtypes'=>$mealtypes]);
+    }
+    
+
+   
+    public function getMealTypeValue($value){
+        $this->emit('emitMealTypeName',$value);
+        
     }
 
 }
