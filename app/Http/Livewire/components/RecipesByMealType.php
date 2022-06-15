@@ -18,9 +18,6 @@ class RecipesByMealType extends Component
     public function mount()
     {
         $this->getRecipesByMealType();
-//    dd($recipesByMealType['recipes'][0]->title) 
-        // dd($this->recipesByMealType['recipes'][0]['id']);
-        // dd($this->recipesByMealType['recipes'][0]['dishTypes']);
     }
 
     public function render()
@@ -31,7 +28,7 @@ class RecipesByMealType extends Component
     public function update($name){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/random?', [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
-            'number' => 5,
+            'number' => 1,
             'tags' => $name,
         ]);
         $this->recipesByMealType = $response->json();
@@ -41,7 +38,7 @@ class RecipesByMealType extends Component
     public function getRecipesByMealType(){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/random?', [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
-            'number' => 5,
+            'number' => 1,
             'tags' => 'main course',
         ]);
         $this->recipesByMealType = $response->json();
