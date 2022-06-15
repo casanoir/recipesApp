@@ -52,7 +52,7 @@ class AddIngredientModal extends Component
         );
 
         // update the btnAction to edit 
-        // $this->emit('refreshBtnAction');
+        $this->emit('emitRefreshBtnAction');
 
         // Sweet Alert
         $this->dispatchBrowserEvent('swal:modal',[
