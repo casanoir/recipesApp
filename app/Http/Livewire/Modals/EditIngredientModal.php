@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Modals;
 
 use Livewire\Component;
-use App\Models\Ingredients_user;
+use App\Models\IngredientsUser;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
@@ -57,7 +57,7 @@ class EditIngredientModal extends Component
         ]);
     
         // Add the ingredient to the user
-        Ingredients_user::where('id' , $ingredientUserId)->update([
+        IngredientsUser::where('id' , $ingredientUserId)->update([
             'user_id' => Auth::id(),
             'ingredient_id' => $this->ingredientId,
             'unit' => $this->unit,

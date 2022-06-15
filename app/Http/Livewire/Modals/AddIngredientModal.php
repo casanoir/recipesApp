@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Modals;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Ingredients_user;
+use App\Models\IngredientsUser;
 use DB;
 
 class AddIngredientModal extends Component
@@ -48,7 +48,7 @@ class AddIngredientModal extends Component
             'date' => $this->date,
         ];
         // Add the ingredient to the user
-        Ingredients_user::create($this->data
+        IngredientsUser::create($this->data
         );
 
         // update the btnAction to edit 

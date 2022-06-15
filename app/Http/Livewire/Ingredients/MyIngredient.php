@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Ingredients;
 
 use Livewire\Component;
-use App\Models\Ingredients_user;
+use App\Models\IngredientsUser;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
