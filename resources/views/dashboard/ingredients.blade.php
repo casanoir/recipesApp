@@ -13,5 +13,4 @@
                     @livewire('ingredients.show-ingredient')
                 </div>
         </div>
-    </div>
 @endsection
