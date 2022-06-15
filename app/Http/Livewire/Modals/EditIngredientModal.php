@@ -22,7 +22,9 @@ class EditIngredientModal extends Component
         'emitIngredientId'=>'update',
     ];
 
-    public function mount(){
+    public function mount($ingredientId){
+        $this->ingredientId=$ingredientId;
+        $this->update($ingredientId);
 
     }
 
@@ -67,7 +69,7 @@ class EditIngredientModal extends Component
         // Sweet Alert
         $this->dispatchBrowserEvent('swal:modal',[
             'type' => 'success',
-            'title' => 'Ingredient added successfully',
+            'title' => 'Ingredient edited successfully',
             'text' => '',
         ]);
 
