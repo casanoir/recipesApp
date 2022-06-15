@@ -39,6 +39,8 @@ class IngredientBtn extends Component
         
         // 1* get the ingredient Id from database with apiIngredientId
         $this->ingredientId=DB::table('ingredients')->where('apiIngredientId',$apiIngredientId)->value('id');
+        $this->emit('emitIngredientId',$this->ingredientId);
+            
         $this->ingredientName=DB::table('ingredients')->where('apiIngredientId',$apiIngredientId)->value('name');
 
         // 2* get the user Id 

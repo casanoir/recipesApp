@@ -20,6 +20,11 @@ class AddIngredientModal extends Component
         'emitIngredientId'=>'update',
     ];
         
+    public function mount($ingredientId){
+        $this->ingredientId=$ingredientId;
+        return $this->ingredientId;
+
+    }
     // Update Method nested with Ingredient Info Blade ->check ingeredient in the database
     public function update($ingredientId){
         $this->ingredientId=$ingredientId;
@@ -31,8 +36,6 @@ class AddIngredientModal extends Component
 
         // check the input fields
         $this->validate([
-            // 'user_id' => 'required|nullable',
-            // 'ingredient_id' => 'required|nullable',
             'unit' => 'required',
             'amount' => 'required ',
         ]);
@@ -49,7 +52,7 @@ class AddIngredientModal extends Component
         );
 
         // update the btnAction to edit 
-        $this->emit('refreshBtnAction');
+        // $this->emit('refreshBtnAction');
 
         // Sweet Alert
         $this->dispatchBrowserEvent('swal:modal',[
