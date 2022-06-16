@@ -93,7 +93,7 @@
                   @endforeach
               </tbody>
             </table>
-            {{-- {!! $myIngredient->links() !!} --}}
+             {{$myIngredients->links() }}
       @else
         <div class="mainIngredient" >
             <h3 class="mt-3" >Whoops! No Igredients were found 🙁</h3>
