@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
 
 class IngredientsUser extends Model
 {
@@ -16,4 +18,11 @@ class IngredientsUser extends Model
         'unit',
         'date'
     ];
+    public static function search($search)
+    {
+        return empty($search) ? static::query()
+            : static::query()
+            ->where('ingredients.name', 'like', '%'.$search.'%');
+    }
 }
+// ->join('ingredients', 'ingredients.id', '=', 'ingredients_users.ingredient_id')

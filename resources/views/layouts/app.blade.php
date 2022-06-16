@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <!-- TailwindCSS -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
     <!--Livewire Styles-->
     @livewireStyles
 
@@ -61,9 +65,12 @@
                 text: event.detail.text,
                 icon: event.detail.type,
             });
-            $("#ingredientModal").modal('hide');
-            $("#contactModal").modal('hide');
-        })
+        $("#ingredientModal").modal('hide');
+        $("#ingredientEditModal").modal('hide');
+        $("#contactModal").modal('hide');
+        });
+       
     </script>
+  
 </body>
 </html>
