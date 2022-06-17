@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Modals;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Ingredients_user;
+use App\Models\IngredientsUser;
 use DB;
 
 class AddIngredientModal extends Component
@@ -20,6 +20,11 @@ class AddIngredientModal extends Component
         'emitIngredientId'=>'update',
     ];
         
+    public function mount($ingredientId){
+        $this->ingredientId=$ingredientId;
+        return $this->ingredientId;
+
+    }
     // Update Method nested with Ingredient Info Blade ->check ingeredient in the database
     public function update($ingredientId){
         $this->ingredientId=$ingredientId;
@@ -31,8 +36,6 @@ class AddIngredientModal extends Component
 
         // check the input fields
         $this->validate([
-            // 'user_id' => 'required|nullable',
-            // 'ingredient_id' => 'required|nullable',
             'unit' => 'required',
             'amount' => 'required ',
         ]);
@@ -43,13 +46,16 @@ class AddIngredientModal extends Component
             'unit' => $this->unit,
             'amount' => $this->amount,
             'date' => $this->date,
+            'created_at' => date("Y-m-d H:i:s", strtotime('now()')),
+            
+
         ];
         // Add the ingredient to the user
-        Ingredients_user::create($this->data
+        IngredientsUser::create($this->data
         );
 
         // update the btnAction to edit 
-        $this->emit('refreshBtnAction');
+        $this->emit('emitRefreshBtnAction');
 
         // Sweet Alert
         $this->dispatchBrowserEvent('swal:modal',[

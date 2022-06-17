@@ -16,6 +16,7 @@ class IngredientBtn extends Component
 
     protected $listeners =[
         'emitApiIngredientId'=>'update',
+        'emitRefreshBtnAction'=>'updateBtn',
     ];
 
     public function mount($apiIngredientId){
@@ -34,11 +35,17 @@ class IngredientBtn extends Component
         $this->apiIngredientId=$apiIngredientId;
         $this->checkIngredient($apiIngredientId);
     }
+       // Update Method nested with AllIngredients Blade 
+    public function updateBtn(){
+        return $this->btnAction="edit";
+    }
     // check of the user has the ingredient ?? and change the action from add to edit
     public function checkIngredient($apiIngredientId){
         
         // 1* get the ingredient Id from database with apiIngredientId
         $this->ingredientId=DB::table('ingredients')->where('apiIngredientId',$apiIngredientId)->value('id');
+        $this->emit('emitIngredientId',$this->ingredientId);
+            
         $this->ingredientName=DB::table('ingredients')->where('apiIngredientId',$apiIngredientId)->value('name');
 
         // 2* get the user Id 

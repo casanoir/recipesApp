@@ -29,6 +29,7 @@
     grid-auto-flow: column;
     justify-content: space-between;
     align-items:  center;
+    padding-top: 8px;
 }
 .div-category-path span{
     font-variant: all-small-caps;

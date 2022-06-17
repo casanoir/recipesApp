@@ -11,7 +11,7 @@
                         <h3 class="modal-title" id="ingredientModalLabel">{{$ingredientName}}</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    @livewire('modals.add-ingredient-modal')
+                    @livewire('modals.add-ingredient-modal',['ingredientId'=> $ingredientId])
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                         <h3 class="modal-title" id="ingredientModalLabel">{{$ingredientName}}</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    @livewire('modals.edit-ingredient-modal')                  
+                    @livewire('modals.edit-ingredient-modal',['ingredientId'=> $ingredientId])                  
                 </div>
             </div>
         </div>

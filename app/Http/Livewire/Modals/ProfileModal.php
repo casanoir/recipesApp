@@ -16,9 +16,17 @@ class ProfileModal extends Component
         $this->lastName = Auth::user()->lastName;
     }
 
-    public function editUser($id){
-        $user = User::where('id',$id)->first();
-        $this->firstName = $user->firstName;
-        $this->lastName = $user->lastName;
+    public function editUser(){
+        User::where('id',Auth::user()->id)->update([
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+        ]);
+        
+        // // Sweet Alert
+        // $this->dispatchBrowserEvent('swal:modal',[
+        //     'type' => 'success',
+        //     'title' => 'Profile edited successfully',
+        //     'text' => '',
+        // ]);
     }
 }
