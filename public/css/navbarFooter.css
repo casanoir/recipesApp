@@ -30,6 +30,7 @@ Footer {
 #search-input {
     border-radius: 10px 0px 0px 10px;
     max-width: 174px;
+    height: 37px;
 }
 
 #search-settings {
