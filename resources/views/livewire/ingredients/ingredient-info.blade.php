@@ -19,7 +19,7 @@
         </div>
             
         <div class="div-ingredient-btn">
-            @livewire('components.ingredient-btn',['apiIngredientId'=>$apiIngredientId])
+            @livewire('ingredients.ingredient-btn',['apiIngredientId'=>$apiIngredientId])
             <button class="btn-pdf">Pdf</button>
         </div>
     </div>

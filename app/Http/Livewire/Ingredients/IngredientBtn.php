@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire\Ingredients;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
@@ -28,7 +28,7 @@ class IngredientBtn extends Component
     // render the  component with parameter btnAction
     public function render()
     {
-        return view('livewire.components.ingredient-btn',['apiIngredientId'=>$this->apiIngredientId]);
+        return view('livewire.ingredients.ingredient-btn',['apiIngredientId'=>$this->apiIngredientId]);
     }
        // Update Method nested with AllIngredients Blade 
     public function update($apiIngredientId){

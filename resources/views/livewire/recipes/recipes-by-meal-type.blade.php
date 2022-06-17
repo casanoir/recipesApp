@@ -1,17 +1,3 @@
-{{-- <div class="mt-5 container">
-    <div class="row">
-        @foreach ($recipesByMealType['recipes'] as $recipes)
-            <div class="card col-4">
-                <img src="{{$recipes['image']}}"  class="card-img-top" alt="{{$recipes['title']}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{$recipes['title']}}</h5>
-                    <a href="/recipe/{{$recipes['id']}}" class="btn btn-primary"></a>
-                </div>
-            </div>
-        @endforeach
-
-    </div>
-</div> --}}
 <div style="    height: 80%;
 overflow: overlay;">
     <div class="recipesIng">

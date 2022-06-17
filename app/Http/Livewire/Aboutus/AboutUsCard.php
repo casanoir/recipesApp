@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire\AboutUs;
 
 use Livewire\Component;
 
@@ -17,6 +17,6 @@ class AboutUsCard extends Component
 
     public function render()
     {
-        return view('livewire.components.about-us-card');
+        return view('livewire.about-us.about-us-card');
     }
 }

@@ -7,7 +7,7 @@
     @endempty
     @isset($apiIngredientId)
     <div class="showIngredientDetails" >
-        @livewire('components.ingredient-info',['apiIngredientId'=>$apiIngredientId])
+        @livewire('ingredients.ingredient-info',['apiIngredientId'=>$apiIngredientId])
     </div>
     @endisset
 </div>

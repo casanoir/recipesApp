@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire\Home;
 
 use Livewire\Component;
 
@@ -8,7 +8,7 @@ class HomeBtn extends Component
 {
     public function render()
     {
-        return view('livewire.components.home-btn');
+        return view('livewire.home.home-btn');
     }
     public function showMyRec(){
         $showComponentv="myRec";

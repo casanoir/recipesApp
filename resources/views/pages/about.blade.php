@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
     
-            @livewire('components.about-us-card',['teamMembers'=> $teamMembers,]) 
+            @livewire('about-us.about-us-card',['teamMembers'=> $teamMembers,]) 
     <hr>
              
         <div class = "row">

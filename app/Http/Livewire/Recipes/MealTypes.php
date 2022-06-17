@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire\Recipes;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
@@ -13,7 +13,7 @@ class MealTypes extends Component
         // $mealtypes = \App\Models\MealType::get();
         $mealtypes= DB::table('meal_types')->get();
 
-        return view('livewire.components.meal-types',['mealtypes'=>$mealtypes]);
+        return view('livewire.recipes.meal-types',['mealtypes'=>$mealtypes]);
     }
     
 

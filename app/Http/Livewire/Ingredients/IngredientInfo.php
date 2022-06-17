@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire\Ingredients;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Components;
+namespace App\Http\Livewire\Recipes;
 
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
@@ -22,7 +22,7 @@ class RecipesByMealType extends Component
 
     public function render()
     {
-        return view('livewire.components.recipes-by-meal-type');
+        return view('livewire.recipes.recipes-by-meal-type');
     }
     
     public function update($name){
