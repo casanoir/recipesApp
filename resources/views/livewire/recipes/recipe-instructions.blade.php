@@ -11,13 +11,13 @@
         
         {{-- Instruction Steps --}}
         @foreach ($recipeInstruction['steps'] as $instructionStep)
-            <div class="div">
+            <div class="div mt-4">
                 {{-- Instruction Step Number --}}
-                <li>Step: {{$instructionStep['number']}}</li>
+                <h4 class="h4">Step: {{$instructionStep['number']}}</h4>
             
                 {{-- Instruction Step Equipment --}}
                 @if ($instructionStep['equipment'])
-                    <h5>Equipment: </h5>
+                    <b>Equipment: </b>
                     @foreach ($instructionStep['equipment'] as $instructionEquipment)
                         <p>{{$instructionEquipment['name']}}</p>
                     @endforeach
@@ -25,14 +25,14 @@
             
                 {{-- Instruction Step Ingredients --}}
                 @if ($instructionStep['ingredients'])
-                    <h5>Ingredient: </h5>
+                    <b>Ingredient: </b>
                     @foreach ($instructionStep['ingredients'] as $instructionIngredient)
                         <p>{{$instructionIngredient['name']}}</p>
                     @endforeach
                 @endif 
 
                 {{-- Instruction Step Discription --}}
-                <p>->{{$instructionStep['step']}}</p>
+                <p class="mt-2">->{{$instructionStep['step']}}</p>
                 
             </div>
         @endforeach

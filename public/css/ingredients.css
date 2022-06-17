@@ -18,7 +18,7 @@
   Ingredients Info 
 * *************** */
 .showIngredientDetails{
-    height: 100vh;
+  height: 100vh;
 }
 .ingredient-info{
  height:100%;
@@ -59,7 +59,7 @@
 }
 .ingredient-details{
   height:80%;
-  margin-top: 10px;
+  margin-top: 5%;
 }
 
 .tab-content{

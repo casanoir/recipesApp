@@ -2,34 +2,37 @@
 <div>
 
     <!-- Title -->
-        <h3>Title</h3>
-        {{$recipeInfo['title']}}
+    <div class="div-ingredient-name">
+        <h3 class="h3">{{$recipeInfo['title']}}</h3>
+    </div>
 
     <!-- Image -->
-        <h3>Image</h3>
-        <img style="height: 330PX;width: 520px;" src="{{$recipeInfo['image']}}" alt="{{$recipeInfo['title']}}
-        ">
+        <img style="height: 330PX;width: 520px;" src="{{$recipeInfo['image']}}" alt="{{$recipeInfo['title']}}">
 
-    {{-- Dish Types --}}
-        <h3>Dish Types</h3>
-        @foreach ($recipeInfo['dishTypes'] as $dishType)
-            <li>{{$dishType}}</li>
-        @endforeach
+        <!--dishtypes-->
+        <div class="div-category-path">
+            <span>Category :</span>
+            @foreach ($recipeInfo['dishTypes'] as $dishType)
+                <span class="ps-3">{{$dishType}}</span>
+            @endforeach              
+        </div>
+
+        <hr/>
 
     <!-- Servings -->
-        <h3>Servings</h3>
+        <h4 class="h4 mt-3">Servings</h4>
         {{$recipeInfo['servings']}}
 
     <!-- Ready In Minutes -->
-        <h3>Ready In Minutes</h3>
+        <h4 class="h4 mt-3">Ready In Minutes</h4>
         {{$recipeInfo['readyInMinutes']}}
 
     <!-- Health Score -->
-        <h3>Health Score</h3>
+        <h4 class="h4 mt-3">Health Score</h4>
         {{$recipeInfo['healthScore']}}
 
     <!-- Summary -->
-        <h3>Summary</h3>
+        <h4 class="h4 mt-3">Summary</h4>
         {!!$recipeInfo['summary']!!}
 
 </div>

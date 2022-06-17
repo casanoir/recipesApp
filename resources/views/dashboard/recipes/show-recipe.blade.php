@@ -11,8 +11,7 @@
                 </div>
         {{-- Show Ingredient details --}}
         <div class="col-md-9" style="background-color: rgb(242, 242, 242); height: 100vh;">
-              
-                <div class="ingredient-details">
+          <div class="ingredient-details">
                         <div class="tabs">
                 
                             <input type="radio" id="tab1" name="tab-control" checked>
@@ -42,20 +41,19 @@
                             <div class="content tab-content">
                               <section>
                                 <h2>Recipe Info</h2>
-                        @livewire('recipes.recipe-info',['recipeId'=>$recipeId])
+                                @livewire('recipes.recipe-info',['recipeId'=>$recipeId])
                                 
                               </section>
                               <section>
                                 <h2>Recipe Instructions</h2>
-                        @livewire('recipes.recipe-instructions')        
+                                @livewire('recipes.recipe-instructions')        
                                 
                               </section>
                               <section>
                                 <h2>Recipe Nutrition</h2>
                                 <div style="height: 25rem;">
-                                        @livewire('recipes.recipe-nutrition')
-
-                                 </div>
+                                    @livewire('recipes.recipe-nutrition')
+                                </div>
                               </section>
                               
                             </div>
