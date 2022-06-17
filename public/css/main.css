@@ -27,11 +27,15 @@ body {
     margin-top: 30vh;
 }
 
+#recipesIngredientContainer{
+    color: #efefef;
+}
+
 
 
 .percentageBarBackground {
     min-width:500px;
-    height:50px;
+    height:15px;
     background-color: white;
     border: 1px solid black;
 }
@@ -44,6 +48,10 @@ body {
 }
 .percentageBarBad {
     background-color: red;
+}
+
+.recipesIngredientCard{
+    background-color: rgba(239, 239, 239, 0.1);
 }
 
 
@@ -81,4 +89,8 @@ body {
 }
 .nav-link:hover {
     color: #ffffff !important;
+}
+
+.text-light{
+    color: #efefef;
 }

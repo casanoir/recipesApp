@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm" id="header" >
-    <div class="container">
+    <div id="navContainer" class="container">
         @guest
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="/images/logo.png" id="navLogo"/>
