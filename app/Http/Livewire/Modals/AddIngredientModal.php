@@ -46,7 +46,6 @@ class AddIngredientModal extends Component
             'unit' => $this->unit,
             'amount' => $this->amount,
             'date' => $this->date,
-            'created_at' => date("Y-m-d H:i:s", strtotime('now()')),
             
 
         ];

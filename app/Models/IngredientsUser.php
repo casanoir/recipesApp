@@ -16,7 +16,8 @@ class IngredientsUser extends Model
         'ingredient_id',
         'amount',
         'unit',
-        'date'
+        'date',
+        'created_at',
     ];
     public static function search($search)
     {

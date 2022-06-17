@@ -13,14 +13,18 @@ class MyIngredient extends Component
     use WithPagination;
 
     public $search = '';
-    public $perPage = 15;
+    public $perPage = 5;
     public $sortField = 'ingredients.name';
     public $sortAsc = true;
     public $selected = [];
+    public $selectedIngNames;
 
-    public function showIngredientInfo($ingredientId)
+    public function searchRecipes()
     {
-        //
+        foreach($this->selected as $string) {
+            $this->selectedIngNames .= $string.",";
+        }
+        $this->emit('emitShowMyIngdientRecipes',$this->selectedIngNames);
         
     }
   
@@ -44,11 +48,6 @@ class MyIngredient extends Component
 
 
 
-    public function searchRecipes()
-    {
-        dd($this->selected);
-    }
-    
     
     public function render()
     {

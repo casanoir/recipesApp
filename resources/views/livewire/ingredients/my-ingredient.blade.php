@@ -38,9 +38,11 @@
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
         </div>
     </div>
+    @if($selected)
       <div class="w-1/6 relative mx-1">
           <button wire:click="searchRecipes" class="block appearance-none w-full bg-blue-500 border border-gray-200 text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">Ingredient's Recipes</button>
       </div>
+      @endif
   </div>
       
           <table class="table-auto w-full mb-6">
@@ -57,13 +59,18 @@
               </thead>
               <tbody>
                   @foreach($myIngredients as $myIngredient)
+                 {{-- created At --}}
+                  {{-- @php
+                  dd($myIngredient);
+                  @endphp --}}
                       <tr>
                           <td class="border px-4 py-2">
-                              <input wire:model="selected" value="{{$myIngredient->apiIngredientId}} " type="checkbox">
+                              <input wire:model="selected" value="{{$myIngredient->name}} " type="checkbox">
                           </td>
                           <td class="border px-4 py-2">{{$myIngredient->name}}</td>
                           <td class="border px-4 py-2">{{$myIngredient->amount}}</td>
                           <td class="border px-4 py-2">{{$myIngredient->unit}}</td>
+                          {{-- <td class="border px-4 py-2">@php dd($myIngredient->created_at) @endphp</td> --}}
                           <td class="border px-4 py-2">@php echo date("d-m-Y", strtotime($myIngredient->created_at)) @endphp</td>
                           <td class="border px-4 py-2">@php echo date("d-m-Y", strtotime($myIngredient->date)) @endphp</td>
                           <td class="border px-4 py-2" style="display: flex;">
