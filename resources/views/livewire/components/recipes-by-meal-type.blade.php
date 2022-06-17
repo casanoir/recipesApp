@@ -1,4 +1,4 @@
-<div>
+<div class="mt-5">
 @foreach ($recipesByMealType['recipes'] as $recipes)
     <div class="card" style="width: 18rem;">
         <img src="{{$recipes['image']}}"  class="card-img-top" alt="{{$recipes['title']}}">
