@@ -6,7 +6,7 @@
         </div>
         <div class="div-ingredient-name">
             {{-- Ingredient Name --}}
-            <h3 >{{$ingredientData['name']}}</h3>
+            <h3 class="h3">{{$ingredientData['name']}}</h3>
             @if($ingredientData['categoryPath'])
         <div class="div-category-path">
             {{-- ingredientData-categoryPath  --}}
