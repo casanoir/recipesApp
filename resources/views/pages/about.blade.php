@@ -8,12 +8,12 @@
     <hr>
     <div class="container">
         <div class="row">
-               
+    
             @livewire('components.about-us-card',['teamMembers'=> $teamMembers,]) 
+    <hr>
              
-
         <div class = "row">
-            <div class="col-8 offset-2 mt-5">
+            <div class="col-8 offset-2 mt-3">
             <div style="text-align: center">
                 <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">
                     Contact Us
