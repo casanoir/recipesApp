@@ -1,4 +1,4 @@
-<form wire:submit.prevent="editUser">
+<div>
 
     <div class="modal-body">
 
@@ -20,6 +20,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
-        <button type="button" wire:click.prevent="editUser($user_id)" data-dismiss="modal" class="btn btn-primary close-modal">Save</button>
+        <button type="button" wire:click.prevent="editUser" data-dismiss="modal" class="btn btn-primary close-modal">Save</button>
     </div>
-</form>
+</div>
