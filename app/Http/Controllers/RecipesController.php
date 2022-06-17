@@ -24,12 +24,12 @@ class RecipesController extends Controller
 
     public function dashboardRecipes()
     {
-        return view('dashboard.recipes.recipes');
+        return view('pages.dashboard.recipes.recipes');
     }
 
     public function dashboardShowRecipe($recipeId)
     {
-        return view('dashboard.recipes.show-recipe',compact('recipeId'));
+        return view('pages.dashboard.recipes.show-recipe',compact('recipeId'));
     }
 
     

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AppController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\RecipesController;
 use App\Http\Controllers\AboutController;
@@ -17,12 +18,14 @@ use App\Http\Controllers\AboutController;
 |
 */
 
-Route::view('/','pages.index');
+
+
+Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Auth::routes();
 
-Route::get('/home', [AppController::class, 'dashboardHome'])->name('home');
+Route::get('/home', [HomeController::class, 'dashboardHome'])->name('home');
 
 
 Route::controller(RecipesController::class)->group(function () {
