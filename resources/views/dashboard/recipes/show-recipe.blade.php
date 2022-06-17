@@ -19,17 +19,17 @@
                             <input type="radio" id="tab2" name="tab-control">
                             <input type="radio" id="tab3" name="tab-control">
                             <ul>
-                                <li title="Ingredient Nutrients">
+                                <li title="Recipe Info">
                                     <label for="tab1" role="button">
-                                        <span>Ingredient Nutrients</span>
+                                        <span>Recipe Info</span>
                                     </label>
                                 </li>
-                                <li title="Recipes by Ingredient">
+                                <li title="Recipe Instructions">
                                     <label for="tab2" role="button">
-                                        <span>Recipes by Ingredient</span></label></li>
+                                        <span>Recipe Instructions</span></label></li>
                                 <li title="Caloric Breakdown">
                                     <label for="tab3" role="button">
-                                        <span>Caloric Breakdown</span></label></li>
+                                        <span>Recipe Nutrition</span></label></li>
                                
                             </ul>
                             {{-- <svg viewBox="0 0 24 24"> --}}
