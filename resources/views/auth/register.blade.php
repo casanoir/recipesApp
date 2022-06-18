@@ -7,7 +7,9 @@
             <div class="container g-0">
                 <div class="row">
                     <div class="col-12 g-0">
-                        <img src="/images/logo.png" class="m-2 w-50"/>
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img  src="/images/logo.png" class="m-2 w-50"/>
+                            </a>
                         <a href="{{ route('about') }}" class="float-end m-4">{{ __('About us') }}</a>
                     </div><!--col-12-->
                 </div><!--row-->
