@@ -44,6 +44,8 @@ class EditIngredientModal extends Component
         $this->ingredientUserId=$this->ingredientUserData[0]->id;
         $this->unit=$this->ingredientUserData[0]->unit;
         $this->amount=$this->ingredientUserData[0]->amount;
+        $this->date=$this->ingredientUserData[0]->date;
+        
         return $this->ingredientUserData;
     }
 
