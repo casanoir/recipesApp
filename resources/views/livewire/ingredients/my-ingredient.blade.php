@@ -103,12 +103,26 @@
             </table>
              {{$myIngredients->links() }}
       @else
-        <div class="mainIngredient" >
-            <h3 class="mt-3" >Whoops! No Igredients were found 🙁</h3>
-            <div class="ingredientNameBtn">
-                <a type="button" href="{{ route('ingredients') }}" class="btn btn-primary mt-4" >Add Ingredient</a>
+            @isset($search)
+            <div class="mainIngredient" >
+                <h3 class="mt-3" >Whoops! you don't have {{$search}} 🙁</h3>
+                <div class="ingredientNameBtn">
+                    <a type="button" href="{{ route('ingredients') }}" class="btn btn-primary mt-4" >Add Ingredient</a>
+                </div>
+                <div class="ingredientNameBtn">
+                    <a type="button" href="{{ route('home') }}" class="btn btn-primary mt-4" >Back to my Ingredients</a>
+                </div>
             </div>
-        </div>
+            @endisset
+            @empty($search)
+            <div class="mainIngredient" >
+                <h3 class="mt-3" >Whoops! No Igredients were found 🙁</h3>
+                <div class="ingredientNameBtn">
+                    <a type="button" href="{{ route('ingredients') }}" class="btn btn-primary mt-4" >Add Ingredient</a>
+                </div>
+            </div>
+            @endempty
+       
       @endif
       
       

@@ -26,4 +26,3 @@ class IngredientsUser extends Model
             ->where('ingredients.name', 'like', '%'.$search.'%');
     }
 }
-// ->join('ingredients', 'ingredients.id', '=', 'ingredients_users.ingredient_id')
