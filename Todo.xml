@@ -1,3 +1,24 @@
 1- logo in login & register form on click to index page 
 
-2-Index controller if auth -> retu view dashboard Home
+2-Index controller if auth -> return view dashboard Home
+
+3-dashboard home:
+    My favorites=>  * 2 tables : create favoritesIngredients and favoritesRecipes table 
+                    * make 2 components favIng favRec
+                    * btn add to favorite + btn delete : in recipe Card and ingredient Info 
+                    * show favorites in component myfavorites 
+    
+    MyIngredients=> * Search your ingredient ERROR
+                    * date carbon 
+                    * show ingredient info when you click on info btn
+                    * get recipes by selected ingredient
+    My Recipes  =>  
+
+
+4-date in edit modal 
+5-pdf
+6-profile refresh by edit modals
+7-search bar
+8-ingredient pie chart
+9-Reset Password page
+ 
