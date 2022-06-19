@@ -17,7 +17,7 @@ class IngredientsUser extends Model
         'amount',
         'unit',
         'date',
-        'created_at',
+        'added_at',
     ];
     public static function search($search)
     {

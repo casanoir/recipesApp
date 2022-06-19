@@ -59,10 +59,6 @@
               </thead>
               <tbody>
                   @foreach($myIngredients as $myIngredient)
-                 {{-- created At --}}
-                  {{-- @php
-                  dd($myIngredient);
-                  @endphp --}}
                       <tr>
                           <td class="border px-4 py-2">
                               <input wire:model="selected" value="{{$myIngredient->name}} " type="checkbox">
@@ -70,8 +66,7 @@
                           <td class="border px-4 py-2">{{$myIngredient->name}}</td>
                           <td class="border px-4 py-2">{{$myIngredient->amount}}</td>
                           <td class="border px-4 py-2">{{$myIngredient->unit}}</td>
-                          {{-- <td class="border px-4 py-2">@php dd($myIngredient->created_at) @endphp</td> --}}
-                          <td class="border px-4 py-2">@php echo date("d-m-Y", strtotime($myIngredient->created_at)) @endphp</td>
+                          <td class="border px-4 py-2">@php echo date("d-m-Y", strtotime($myIngredient->added_at)) @endphp</td>
                           <td class="border px-4 py-2">@php echo date("d-m-Y", strtotime($myIngredient->date)) @endphp</td>
                           <td class="border px-4 py-2" style="display: flex;">
                             <div class="pointer-events  flex items-center px-2 text-gray-700">

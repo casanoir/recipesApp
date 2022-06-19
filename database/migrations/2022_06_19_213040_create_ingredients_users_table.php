@@ -20,6 +20,7 @@ return new class extends Migration
             $table->float('amount');
             $table->string('unit');
             $table->date('date')->nullable();
+            $table->date('added_at')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Modals;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 use App\Models\IngredientsUser;
 use DB;
 
@@ -46,6 +47,7 @@ class AddIngredientModal extends Component
             'unit' => $this->unit,
             'amount' => $this->amount,
             'date' => $this->date,
+            'added_at' => Carbon::today(),
             
 
         ];
