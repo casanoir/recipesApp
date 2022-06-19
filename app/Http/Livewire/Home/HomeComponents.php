@@ -9,6 +9,7 @@ class HomeComponents extends Component
 {
     public $showComponent ='myIng';
     public $apiIngredientId;
+    public $selectedIngNames;
    
     protected $listeners =[
         'emitShowComponent'=>'update',
@@ -30,7 +31,8 @@ class HomeComponents extends Component
     }
     public function showMyIngdientRecipes($selectedIngNames){
         $this->showComponent="myRec";
-        return view('livewire.home.home-components',['showComponent'=>$this->showComponent,'selectedIngNames'=>$selectedIngNames]);
+        $this->selectedIngNames=$selectedIngNames;
+        return $this->selectedIngNames;
     }
     public function showMyIngdientInfo($id){
         $this->showComponent="myingInfo";
