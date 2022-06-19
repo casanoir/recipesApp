@@ -4,7 +4,7 @@
     @elseif($showComponent=='myRec')
         @livewire('recipes.my-recipes')
     @elseif($showComponent=='myingInfo')
-    <a href="/home">< BACK</a>
+    <button wire:click="goBack" class="btn btn-pdf">Back to my ingredients</button>
     @livewire('ingredients.ingredient-info',['apiIngredientId'=>$apiIngredientId])
     @endif
 </div>

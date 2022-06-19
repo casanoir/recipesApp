@@ -24,6 +24,10 @@ class HomeComponents extends Component
     public function render(){
         return view('livewire.home.home-components',['showComponent'=>$this->showComponent]);
     }
+    public function goBack(){
+        $this->showComponent="myIng";
+        return view('livewire.home.home-components',['showComponent'=>$this->showComponent]);
+    }
     public function showMyIngdientRecipes($selectedIngNames){
         $this->showComponent="myRec";
         return view('livewire.home.home-components',['showComponent'=>$this->showComponent,'selectedIngNames'=>$selectedIngNames]);
