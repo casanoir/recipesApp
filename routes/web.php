@@ -31,7 +31,6 @@ Route::get('/home', [HomeController::class, 'dashboardHome'])->name('home');
 Route::controller(RecipesController::class)->group(function () {
     Route::get('/recipes', 'dashboardRecipes')->name('recipes');
     Route::get('/recipe/{recipeId}', 'dashboardShowRecipe')->name('showRecipe');
-    Route::get('/recipe/{recipeId}/{ingredientName}', 'dashboardShowRecipeIngredientInfo')->name('showRecipeIngredientInfo');
 });
 
 

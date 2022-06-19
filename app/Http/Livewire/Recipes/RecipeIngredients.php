@@ -30,9 +30,12 @@ class RecipeIngredients extends Component
         
         return $this->extendedIngredients;
     }
+    public function ingredientInfo($id){
+        $this->emit('emitShowingredientInfoComponent',$id);
+    }
     
 }
 
-   
+
 
    

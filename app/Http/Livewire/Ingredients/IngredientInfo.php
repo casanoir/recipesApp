@@ -19,6 +19,7 @@ class IngredientInfo extends Component
     protected $listeners =[
         // allIngredients
         'emitApiIngredientId'=>'update',
+        'emitShowingredientInfoComponent'=>'update',
     ];
 
     public function mount($apiIngredientId){

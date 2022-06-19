@@ -12,7 +12,8 @@
             <span>{{$ingredientData['measures']['metric']['amount']}}</span>
             <span>{{$ingredientData['measures']['metric']['unitShort']}}</span>
           </p>
-          <a href="/recipe/{{$apiRecipeId}}/{{$ingredientData['name']}}" type="button" class="card__btn">View Ingredient</a>
+          {{-- <a href="/recipe/{{$apiRecipeId}}/{{$ingredientData['name']}}" type="button" class="card__btn">View Ingredient</a> --}}
+          <button class="btn btn-primary" wire:click="ingredientInfo({{$ingredientData['id']}})">show info</button>
         </td>
       </tr>
     @endforeach

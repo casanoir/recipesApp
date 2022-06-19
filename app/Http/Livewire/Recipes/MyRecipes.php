@@ -11,7 +11,7 @@ class MyRecipes extends Component
   public function mount($selectedIngNames){
     $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/findByIngredients?', [
         'apiKey'=>env('SPOONACULAR_API_KEY'),
-        'number'=>4,
+        'number'=>8,
         'ingredients'=>$selectedIngNames,
     ]);
     $this->ingredientRecipes = $response->json();
