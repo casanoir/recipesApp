@@ -23,7 +23,6 @@ class IngredientInfo extends Component
 
     public function mount($apiIngredientId){
         $this->apiIngredientId=$apiIngredientId;
-        
         // show ingredient information 
         $this->getIngredientInfo($apiIngredientId);
         // show ingredient Substitutes 
@@ -44,7 +43,6 @@ class IngredientInfo extends Component
         
         $this->ingredientData = $response->json();
         // dd($this->ingredientData['nutrition']['caloricBreakdown']['percentProtein']);
-
         return $this->ingredientData;
     }
 
@@ -65,6 +63,7 @@ class IngredientInfo extends Component
             'number'=>8,
             'ingredients'=>$ingredientName,
         ]);
+
         
         $this->ingredientRecipes = $response->json();
         return $this->ingredientRecipes;
@@ -76,8 +75,6 @@ class IngredientInfo extends Component
     public function update($apiIngredientId){
         
         $this->apiIngredientId=$apiIngredientId;
-        
-        
         
         // show ingredient information 
         $this->getIngredientInfo($apiIngredientId);

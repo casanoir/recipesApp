@@ -19,19 +19,18 @@ class MyIngredient extends Component
     public $selected = [];
     public $selectedIngNames;
 
-    public function searchRecipes()
-    {
+    public function searchRecipes(){
         foreach($this->selected as $string) {
             $this->selectedIngNames .= $string.",";
         }
         $this->emit('emitShowMyIngdientRecipes',$this->selectedIngNames);
         
     }
-  
-
-    public function deleteIngredient($ingredientId)
-	{
-        
+    
+    public function showIngredientInfo($ingredientId){
+		$this->emit('emitshowMyIngdientInfo',$ingredientId);                                
+	}
+    public function deleteIngredient($ingredientId){
 		$ingredient = DB::table("ingredients_users")
                                 ->where('user_id',Auth::user()->id)
                                 ->where('ingredient_id',$ingredientId)
@@ -44,13 +43,8 @@ class MyIngredient extends Component
         ]);
                                 
 	}
-
-
-
-
     
-    public function render()
-    {
+    public function render(){
         return view('livewire.ingredients.my-ingredient', [
             'myIngredients' => IngredientsUser::search($this->search)
                 ->where('user_id',Auth::user()->id)
