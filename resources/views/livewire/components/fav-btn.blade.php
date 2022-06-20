@@ -45,10 +45,6 @@
         </g>
       </svg>
     </label>
-
-    <h1>Click me !</h1>
-
-    <a target="_blank" href="http://robeen.io">http://robeen.io</a>
   </div>
 </div>
 </div>
