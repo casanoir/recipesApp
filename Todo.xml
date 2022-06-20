@@ -4,7 +4,7 @@
 
 3-dashboard home:
     My favorites=>  
-                    * 2 tables : create favoritesIngredients and favoritesRecipes table 
+                    * 2 tables : create favorite-ingredients and favorite-recipes table 
                     * make 2 components favIng favRec
                     * btn add to favorite + btn delete : in recipe Card and ingredient Info 
                     * show favorites in component myfavorites 
