@@ -12,7 +12,7 @@
             {{-- Ingredients --}}
             <div class="showIngredient">
                 {{-- Ingredient Name and Btn show ingredient info --}}
-                    <div class="ingredientNameBtn" >    
+                    <div class="text-light" >    
                         <button  wire:click="ingredientInfo({{$ingredient->apiIngredientId}})">{{$ingredient->name}}</button>
                     </div>                
             </div>
