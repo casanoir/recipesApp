@@ -7,14 +7,14 @@
       <tr>
         <td class="text-light ps-3">
           {{-- Ingredient Name --}}
-          <h3 class="h4 mb-1">{{$ingredientData['name']}}</h3>
+          <h4 class="h4 mb-1">
+            {{$ingredientData['name']}}
+            <i wire:click="ingredientInfo({{$ingredientData['id']}})" class="fas fa-question-circle"></i>
+            </h4>
           <p>
             <span>{{$ingredientData['measures']['metric']['amount']}}</span>
             <span>{{$ingredientData['measures']['metric']['unitShort']}}</span>
           </p>
-          {{-- <a href="/recipe/{{$apiRecipeId}}/{{$ingredientData['name']}}" type="button" class="card__btn">View Ingredient</a> --}}
-          <button class="btn btn-primary" wire:click="ingredientInfo({{$ingredientData['id']}})">show info</button>
-        </td>
       </tr>
     @endforeach
   </table>

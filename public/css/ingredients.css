@@ -70,7 +70,7 @@
 .tabs {
   background: #f2f2f2;
   padding: 15px;
-  height: 80vh;
+  height: 75vh;
   box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
   border-radius: 5px;
   min-width: 240px;
@@ -450,7 +450,7 @@ font-weight: 500;
     All ingredients
 ******************** */
 .showAlphabetsAndData{
-    height: 95vh;
+    height: 90vh;
 }
 .showAllAlphabets{
     height: 10vh;
@@ -465,7 +465,7 @@ font-weight: 500;
     font-family: emoji;
 }
 .showAllIngredients{
-    height: 80vh;
+    height: 75vh;
     overflow-y: overlay;
 }
 .showIngredient{
@@ -473,6 +473,9 @@ font-weight: 500;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.showIngredient .btn-primary{
+  min-width: 150px;
 }
 
 .ingredientNameBtn button{

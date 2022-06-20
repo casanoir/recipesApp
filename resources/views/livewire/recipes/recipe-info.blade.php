@@ -5,10 +5,10 @@
     <div class="div-ingredient-name">
         <h3 class="h3">{{$recipeInfo['title']}}</h3>
     </div>
-
+@isset($recipeInfo['image'])
     <!-- Image -->
         <img style="height: 330PX;width: 520px;" src="{{$recipeInfo['image']}}" alt="{{$recipeInfo['title']}}">
-
+@endisset
         <!--dishtypes-->
         <div class="div-category-path">
             <span>Category :</span>

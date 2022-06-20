@@ -1,8 +1,8 @@
 
 <div class="mt-3">
+    @if($myIngredients->isNotEmpty())
     <h3 class="text-center m-3">My Ingredient</h3>
     <div class="w-full flex pb-10">
-        @if($myIngredients->isNotEmpty())
       <div class="w-3/6 mx-1">
           <input wire:model.debounce.300ms="search" type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"placeholder="Search your ingredient...">
       </div>
@@ -92,25 +92,24 @@
             </table>
              {{$myIngredients->links() }}
       @else
-            @isset($search)
-            <div class="mainIngredient" >
-                <h3 class="mt-3" >Whoops! you don't have {{$search}} 🙁</h3>
-                <div class="ingredientNameBtn">
-                    <a type="button" href="{{ route('ingredients') }}" class="btn btn-primary mt-4" >Add Ingredient</a>
+            @if($search)
+                <div class="mainIngredient" >
+                    <h3 class="mt-3" >Whoops! you don't have {{$search}} 🙁</h3>
+                    <div class="ingredientNameBtn">
+                        <a type="button" href="{{ route('ingredients') }}" class="btn btn-primary mt-4" >Add Ingredient</a>
+                    </div>
+                    <div class="ingredientNameBtn">
+                        <a type="button" href="{{ route('home') }}" class="btn btn-primary mt-4" >Back to my Ingredients</a>
+                    </div>
                 </div>
-                <div class="ingredientNameBtn">
-                    <a type="button" href="{{ route('home') }}" class="btn btn-primary mt-4" >Back to my Ingredients</a>
+            @else
+                <div class="mainIngredient" >
+                    <h3 class="mt-3" >Whoops! No Igredients were found 🙁</h3>
+                    <div class="ingredientNameBtn">
+                        <a type="button" href="{{ route('ingredients') }}" class="btn btn-primary mt-4" >Add Ingredient</a>
+                    </div>
                 </div>
-            </div>
-            @endisset
-            @empty($search)
-            <div class="mainIngredient" >
-                <h3 class="mt-3" >Whoops! No Igredients were found 🙁</h3>
-                <div class="ingredientNameBtn">
-                    <a type="button" href="{{ route('ingredients') }}" class="btn btn-primary mt-4" >Add Ingredient</a>
-                </div>
-            </div>
-            @endempty
+            @endif
        
       @endif
       
