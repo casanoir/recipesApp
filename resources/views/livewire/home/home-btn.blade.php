@@ -7,5 +7,5 @@
     <button class="mb-3" wire:click="showMyIng">INGREDIENT</button>
     <button class="mb-3" wire:click="showMyFavIng">FAVORITE INGREDIENTS</button>
     <button class="mb-3" wire:click="showMyFavRec">FAVORITE RECIPES</button>
-    <button class="mb-3" wire:click="showMyHistory">HISTORY</button>
+    {{-- <button class="mb-3" wire:click="showMyHistory">HISTORY</button> --}}
 </div>

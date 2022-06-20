@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Modals;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Redirector;
 class ProfileModal extends Component
 {
     public $user_id;
@@ -22,11 +23,12 @@ class ProfileModal extends Component
             'lastName' => $this->lastName,
         ]);
         
-        // // Sweet Alert
-        // $this->dispatchBrowserEvent('swal:modal',[
-        //     'type' => 'success',
-        //     'title' => 'Profile edited successfully',
-        //     'text' => '',
-        // ]);
+       // Sweet Alert
+       $this->dispatchBrowserEvent('swal:modal',[
+        'type' => 'success',
+        'title' => 'Profile edited successfully',
+        'text' => '',
+    ]);
+
     }
 }
