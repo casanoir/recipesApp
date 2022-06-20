@@ -10,16 +10,20 @@ class HomeBtn extends Component
     {
         return view('livewire.home.home-btn');
     }
-    public function showMyRec(){
-        $showComponentv="myRec";
-        $this->emit('emitShowComponent',$showComponentv);
-    }
     public function showMyIng(){
         $showComponentv="myIng";
         $this->emit('emitShowComponent',$showComponentv);
     }
-    public function showMyfav(){
-        $showComponentv="myfav";
+    public function showMyFavIng(){
+        $showComponentv="myFavIng";
+        $this->emit('emitShowComponent',$showComponentv);
+    }
+    public function showMyFavRec(){
+        $showComponentv="myFavRec";
+        $this->emit('emitShowComponent',$showComponentv);
+    }
+    public function showMyHistory(){
+        $showComponentv="myHis";
         $this->emit('emitShowComponent',$showComponentv);
     }
 }

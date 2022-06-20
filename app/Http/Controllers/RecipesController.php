@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class RecipesController extends Controller
 {
+   
     /**
      * Create a new controller instance.
      *
@@ -29,7 +30,15 @@ class RecipesController extends Controller
 
     public function dashboardShowRecipe($recipeId)
     {
+        
         return view('pages.dashboard.recipes.show-recipe',compact('recipeId'));
+    }
+   
+    public function dashboardShowRecipeIngredientInfo($recipeId,$ingredientName)
+    {
+        $apiIngredientId= DB::table('ingredients')->where('name',$ingredientName)->value('apiIngredientId');
+        
+        return view('pages.dashboard.recipes.show-recipe-ingredient-info',compact('recipeId','apiIngredientId'));
     }
 
     

@@ -30,18 +30,12 @@ class RecipeIngredients extends Component
         
         return $this->extendedIngredients;
     }
-
-    // Show ingredient info 
-    public function ingredientInfo($ingredientId){
-
-        // $this->emit( 'ingredientInfo',$ingredientId);
-        // dd($ingredientId);
-        return view('dashboard.ingredients');
+    public function ingredientInfo($id){
+        $this->emit('emitShowingredientInfoComponent',$id);
     }
-
     
 }
 
-   
+
 
    

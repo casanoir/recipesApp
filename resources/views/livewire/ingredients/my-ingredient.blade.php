@@ -11,7 +11,7 @@
               <option value="ingredients.name">Name</option>
               <option value="amount">Amount</option>
               <option value="unit">Unit</option>
-              <option value="created_at">Added Date</option>
+              <option value="added_at">Added Date</option>
               <option value="date">End Date</option>
           </select>
           <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -48,7 +48,9 @@
           <table class="table-auto w-full mb-6">
               <thead>
                   <tr>
-                      <th class="px-4 py-2"></th>
+                      <th class="px-4 py-2">
+                        {{-- <input wire:model="selectedAll"  type="checkbox"> --}}
+                      </th>
                       <th class="px-4 py-2">Name</th>
                       <th class="px-4 py-2">Amount</th>
                       <th class="px-4 py-2">Unit</th>
