@@ -16,6 +16,7 @@ class IngredientBtn extends Component
 
     protected $listeners =[
         'emitApiIngredientId'=>'update',
+        'emitShowingredientInfoComponent'=>'update',
         'emitRefreshBtnAction'=>'updateBtn',
     ];
 
