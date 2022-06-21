@@ -42,7 +42,7 @@ class RecipesByMealType extends Component
     public function getRecipesByMealType(){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/random?', [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
-            'number' => 9,
+            'number' => 1,
             'tags' => 'main course',
         ]);
         $this->recipesByMealType = $response->json();

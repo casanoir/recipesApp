@@ -18,8 +18,8 @@ class MealTypes extends Component
     
 
    
-    public function getMealTypeValue($value){
-        $this->emit('emitMealTypeName',$value);
+    public function getMealTypeValue($name){
+        $this->emit('emitMealTypeName',$name);
         
     }
 

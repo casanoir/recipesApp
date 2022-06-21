@@ -1,5 +1,5 @@
 <div>
-    <h3>recipes > {{$mealType}}</h3>
+    <h3>Recipes > {{$mealType}}</h3>
     <div style="    height: 80%;
     overflow: overlay;">
         <div class="recipesIng">
@@ -9,7 +9,7 @@
                     <img src="https://spoonacular.com/recipeImages/{{$recipe['id']}}-312x231.jpg" alt="{{$recipe['title']}}" class="card__image">
                     
                     <h4 class="card__title">{{$recipe['title']}}</h4>
-                    @livewire('components.fav-btn')
+                    @livewire('components.fav-btn',['recipeOrIgredientId'=>$recipe['id'],'btnName'=>'recipe'])
                 </div>
                 <a href="/recipe/{{$recipe['id']}}" type="button" class="card__btn">View Recipe</a>
             </div>
