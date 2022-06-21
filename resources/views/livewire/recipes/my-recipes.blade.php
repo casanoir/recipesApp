@@ -9,6 +9,7 @@
                 <h4 class="card__title">{{$recipe['title']}}</h4>
             @if($recipe['missedIngredientCount'] == 0)
             </div>
+            <p class="card__description">You have all ingredients  to do that recipe.</p>
             <a href="/recipe/{{$recipe['id']}}" type="button" class="card__btn">Use It</a>
             @else
                     <p class="card__description">You need {{$recipe['missedIngredientCount']}} ingredients more to do that recipe.</p>

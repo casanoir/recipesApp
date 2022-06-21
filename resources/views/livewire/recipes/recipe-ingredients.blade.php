@@ -1,8 +1,7 @@
 {{--  Ingredients  --}}
 <div>
   <h3 class="h3 text-light my-2" style="text-align: center">Ingredients</h3>
-  <button class="btn btn-primary mx-auto my-1">
-    Use Recipe
+  @livewire('components.btn-use-recipe',['recipeIngredients'=>$extendedIngredients])
   </button>
 <div id=recipesIngredientContainer class="showAllIngredients">
   <table class="table table-striped">

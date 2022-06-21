@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Recipes;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 use Livewire\Component;
@@ -33,6 +34,7 @@ class RecipeIngredients extends Component
     public function ingredientInfo($id){
         $this->emit('emitShowingredientInfoComponent',$id);
     }
+   
     
 }
 
