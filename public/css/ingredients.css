@@ -453,7 +453,6 @@ font-weight: 500;
     height: 90vh;
 }
 .showAllAlphabets{
-    height: 10vh;
     display: flex;
     justify-content: center;
     flex-direction: row;

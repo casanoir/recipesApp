@@ -30,11 +30,16 @@ body {
 
 #mainSupportedContent{
     background-color: rgb(242, 242, 242);
-    height: 100vh;
+    height: 102vh;
 }
 
 #recipesIngredientContainer{
     color: #efefef;
+}
+
+#recipeNutritionQuickview{
+    display: flex;
+    gap: 5%;
 }
 
 #sidebarSupportedContent{
@@ -125,6 +130,9 @@ body {
 
 .text-light{
     color: #efefef;
+}
+.text-primary{
+    color: #6FA87E !important;
 }
 
 

@@ -18,6 +18,7 @@
             <span>{{$ingredientData['measures']['metric']['amount']}}</span>
             <span>{{$ingredientData['measures']['metric']['unitShort']}}</span>
           </p>
+        </td>
       </tr>
     @endforeach
   </table>

@@ -4,7 +4,7 @@
 
     {{-- Calories - Protein - Total Fat - Carbs --}}
     <h4 class="h4">Quickview</h4>
-    <div>
+    <div id="recipeNutritionQuickview">
         <span><b>Calories:</b> {{$recipeNutrition['calories']}}</span><br>
         <span><b>Protein:</b> {{$recipeNutrition['carbs']}}</span><br>
         <span><b>Total Fat:</b> {{$recipeNutrition['fat']}}</span><br>
