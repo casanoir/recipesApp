@@ -19,6 +19,7 @@ class MealTypes extends Component
 
    
     public function getMealTypeValue($name){
+        $name = strtolower($name);
         $this->emit('emitMealTypeName',$name);
         
     }
