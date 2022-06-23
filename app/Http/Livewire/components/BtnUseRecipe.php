@@ -11,6 +11,8 @@ use DB;
 class BtnUseRecipe extends Component
 {
     public $extendedIngredients;
+    public $afterUsing=[];
+    public $afterUsingIngNames;
 
     public function mount($recipeIngredients)
     {
@@ -35,7 +37,6 @@ class BtnUseRecipe extends Component
             
             //  check of the user has the ingredient
             if (in_array($ingredient_id, $myIngredientsId)){
-            	
                 //  get user's ingredient from database
                 $userIngredient = DB::table("ingredients_users")
                                 ->where('user_id',Auth::user()->id)
@@ -47,71 +48,95 @@ class BtnUseRecipe extends Component
                     $userIngredientUnit = $ingredient->unit;
                     $userIngredientAmount = $ingredient->amount;
                 }
-               if($unitRecipe == "g" || $unitRecipe =="ml" || $unitRecipe =="pieces" ){
-                    if( $unitRecipe = $userIngredientUnit){
-                        if($amountRecipe < $userIngredientAmount){
-                            $userIngredientAmount=$userIngredientAmount-$amountRecipe;
-                            IngredientsUser::where('id' , $userIngredientId)->update([
-                                'amount' => $userIngredientAmount,
-                                ]
-                            );
-                        }
-                        else{
-                            $message="you dont have enough ".$userIngredientName." to do that recipe";
-                        }
-                    }
-                    else{
-                        $message="you ingredient".$userIngredientName." have the wrong unit , must be ".$userIngredientUnit;                        
-                        return $message;                     
-                    }
-               }
-               else{
-                    if($unitRecipe == "kg" ){
-                       $unitRecipe="g";
-                       $amountRecipe=$amountRecipe*1000;
-                            if( $unitRecipe = $userIngredientUnit){
-                                if($amountRecipe < $userIngredientAmount){
-                                    $userIngredientAmount=$userIngredientAmount-$amountRecipe;
-                                    IngredientsUser::where('id' , $userIngredientId)->update([
-                                        'amount' => $userIngredientAmount,
-                                        ]
-                                    );
-                                }
-                                else{
-                                    $message="you dont have enough ".$userIngredientName." to do that recipe";
-                                }
+                if($unitRecipe==""){
+                    $unitRecipe="pieces";
+                }
+                if($unitRecipe == "g" || $unitRecipe =="ml" || $unitRecipe =="pieces" ){
+                        if( $unitRecipe == $userIngredientUnit){
+                            if($amountRecipe <= $userIngredientAmount){
+                                $userIngredientAmountNew=$userIngredientAmount-$amountRecipe;
+                                IngredientsUser::where('id' , $userIngredientId)
+                                ->update([
+                                    'amount' => $userIngredientAmountNew,
+                                ]);
                             }
                             else{
-                                $message="you ingredient".$userIngredientName." have the wrong unit , must be ".$userIngredientUnit;                        
-                                return $message;                     
+                                $messageNotEnough="You dont have enough ".$userIngredientName." to do that recipe ";                     
                             }
-                    }
-                    elseif($unitRecipe == "L" ){
-                        $unitRecipe="ml";
-                        $amountRecipe=$amountRecipe*1000;
-                            if( $unitRecipe = $userIngredientUnit){
-                                    if($amountRecipe < $userIngredientAmount){
-                                        $userIngredientAmount=$userIngredientAmount-$amountRecipe;
-                                        IngredientsUser::where('id' , $userIngredientId)->update([
-                                            'amount' => $userIngredientAmount,
-                                            ]
-                                        );
+                        }
+                        else{                   
+                            $messageWrongUnit="You ingredient -".$userIngredientName."- have the wrong unit must be -".$userIngredientUnit."-";                     
+                        }
+                }
+                else{
+                        if($unitRecipe == "kg" ){
+                            $unitRecipe="g";
+                            $amountRecipe=$amountRecipe*1000;
+                                if( $unitRecipe == $userIngredientUnit){
+                                    if($amountRecipe <= $userIngredientAmount){
+                                        $userIngredientAmountNew=$userIngredientAmount-$amountRecipe;
+                                        IngredientsUser::where('id' , $userIngredientId)
+                                        ->update([
+                                            'amount' => $userIngredientAmountNew,
+                                        ]);
                                     }
                                     else{
-                                        $message="you dont have enough ".$userIngredientName." to do that recipe";
+                                        $messageNotEnough="You dont have enough ".$userIngredientName." to do that recipe.";                      
                                     }
-                            }
-                            else{
-                                $message="you ingredient".$userIngredientName." have the wrong unit , must be ".$userIngredientUnit;                        
-                                return $message;                     
-                            }
-                    }
-                    else{
-                        $message="you dont have enough ".$userIngredientName." to do that recipe";    
-                    }
-               }
-            }
+                                }
+                                else{
+                                    $messageWrongUnit="You ingredient -".$userIngredientName."- have the wrong unit must be -".$userIngredientUnit."-";                     
+                                }
+                        }
+                        elseif($unitRecipe == "L" ){
+                            $unitRecipe="ml";
+                            $amountRecipe=$amountRecipe*1000;
+                                if( $unitRecipe == $userIngredientUnit){
+                                        if($amountRecipe <= $userIngredientAmount){
+                                            $userIngredientAmountNew=$userIngredientAmount-$amountRecipe;
+                                            IngredientsUser::where('id' , $userIngredientId)
+                                            ->update([
+                                                'amount' => $userIngredientAmountNew,
+                                            ]);  
+                                        }
+                                        else{
+                                            $messageNotEnough="You dont have enough ".$userIngredientName." to do that recipe";                  
+                                        }
+                                }
+                                else{
+                                    $messageWrongUnit="You ingredient -".$userIngredientName."- have the wrong unit must be -".$userIngredientUnit."-";                                         
+                                }
+                        }
+                        else{        array_push($this->afterUsing, $userIngredientName);                            
+                        }
+                }
+                if(isset($messageNotEnough)){
+                    $message=$messageNotEnough;
+                    return $this->dispatchBrowserEvent('swal:modal',[
+                        'type' => 'error',
+                        'title' => $message,
+                        'text' => '',
+                    ]);   
+                }elseif(isset($messageWrongUnit)){
+                    $message=$messageWrongUnit;
+                    return $this->dispatchBrowserEvent('swal:modal',[
+                        'type' => 'error',
+                        'title' => $message,
+                    ]);   
+                }
+            }            
         }
-
+        // end for each
+        if(isset($this->afterUsing)){
+            foreach($this->afterUsing as $string) {
+                $this->afterUsingIngNames .= $string." - ";
+            }
+            $message="Edit after using: -".$this->afterUsingIngNames;
+            return $this->dispatchBrowserEvent('swal:modal',[
+                'type' => 'info',
+                'title' => 'How much did you used for that recipe?',
+                'text' => $message,
+            ]); 
+        }
     }
 }
