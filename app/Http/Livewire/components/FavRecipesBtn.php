@@ -10,14 +10,19 @@ class FavRecipesBtn extends Component
 {
     public $userFavoriteRecipes=[];
     public $recipeId;
+    public $recipeName;
+    public $recipeImage;
     public $liked;
 
-    public function mount($recipeId)
+    public function mount($recipe)
     {
-        $this->recipeId=$recipeId;
+        // dd($recipe['image']);
+        $this->recipeId=$recipe['id'];
+        $this->recipeName=$recipe['title'];
+        $this->recipeImage=$recipe['image'];
         //make DB call to check if this recipe is already favorited
         $this->userFavoriteRecipes = DB::table('favorite_recipes')->where('user_id',Auth::id())->pluck('recipe_id')->toArray();
-        if (in_array($recipeId, $this->userFavoriteRecipes)){
+        if (in_array($this->recipeId, $this->userFavoriteRecipes)){
             $this->liked=true;
         }
         else{
@@ -29,7 +34,9 @@ class FavRecipesBtn extends Component
 
         $this->data=[
             'user_id' => Auth::id(),
-            'recipe_id' => $recipeId,
+            'recipe_id' => $this->recipeId,
+            'name' => $this->recipeName,
+            'image' => $this->recipeImage,
         ];
         FavoriteRecipes::create($this->data
         );

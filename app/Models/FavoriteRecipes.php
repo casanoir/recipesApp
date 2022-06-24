@@ -9,7 +9,9 @@ class FavoriteRecipes extends Model
 
     protected $fillable = [
         'user_id',
-        'recipe_id'
+        'recipe_id',
+        'name',
+        'image',
     ];
 
     public function likes()

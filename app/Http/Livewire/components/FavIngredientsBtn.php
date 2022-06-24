@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Components;
 
 use Livewire\Component;
-use App\Models\FavoriteRecipes;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
@@ -40,7 +39,9 @@ class FavIngredientsBtn extends Component
     public function removeFromFavorite($ingredientId){
         //delete movie id from this user's favorites
         DB::table('favorite_ingredients')->where('user_id',Auth::id())->where('ingredient_id', $ingredientId)->delete();
+        $this->emit('emitDislike');
         $ingredientId = null;
         $this->liked=false;
+
     }
 }
