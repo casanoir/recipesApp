@@ -13,7 +13,7 @@
         @foreach ($recipeInstruction['steps'] as $instructionStep)
             <div class="div mt-4">
                 {{-- Instruction Step Number --}}
-                <h4 class="h4">Step: {{$instructionStep['number']}}</h4>
+                <h4 class="h4 sticky-top bg-light">Step: {{$instructionStep['number']}}</h4>
             
                 {{-- Instruction Step Equipment --}}
                 @if ($instructionStep['equipment'])

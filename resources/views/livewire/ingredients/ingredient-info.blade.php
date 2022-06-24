@@ -1,7 +1,8 @@
 <div class="ingredient-info">
     <div class="row1 ">
-        <div class="div-ingredient-image">
+        <div class="mt-5">
             {{-- Ingredient Image --}}
+            @livewire('components.fav-ingredients-btn',['apiIngredientId'=>$apiIngredientId])
             <img style="height: 90px;width: 100px;" src="https://spoonacular.com/cdn/ingredients_100x100/{{$ingredientData['image']}}" alt="{{$ingredientData['name']}}">
         </div>
         <div class="div-ingredient-name">
@@ -20,7 +21,6 @@
             
         <div class="div-ingredient-btn">
             @livewire('ingredients.ingredient-btn',['apiIngredientId'=>$apiIngredientId])
-            @livewire('components.fav-ingredients-btn',['apiIngredientId'=>$apiIngredientId])
         </div>
     </div>
     <div class="ingredient-details">

@@ -68,17 +68,29 @@ body {
     z-index: 1000;
 
 }
-.favoriteBtnOuter{
+.favoriteBtnOuterRecipe{
     color: black;
     font-size: 48px;
 }
-.favoriteBtnInner{
+.favoriteBtnInnerRecipe{
     float: left;
     position: absolute;
     left: 13px;
     top: 13px;
     z-index: 1001;
     font-size: 38px;
+}
+.favoriteBtnOuterIngredient{
+    color: black;
+    font-size: 32px;
+}
+.favoriteBtnInnerIngredient{
+    float: left;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    z-index: 1001;
+    font-size: 24px;
 }
 .favoriteBtnFavorite{
     color: #efefef;
@@ -177,6 +189,9 @@ body {
 /* Bootstrap overrides */
 .bg-primary {
     background-color: #7DBE8E !important;
+}
+.bg-light {
+    background-color: #f2f2f2 !important;
 }
 
 .btn-primary {
