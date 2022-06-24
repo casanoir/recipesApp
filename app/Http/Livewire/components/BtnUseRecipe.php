@@ -48,7 +48,7 @@ class BtnUseRecipe extends Component
                     $userIngredientUnit = $ingredient->unit;
                     $userIngredientAmount = $ingredient->amount;
                 }
-                if($unitRecipe==""){
+                if($unitRecipe=="" || $unitRecipe=="large" ){
                     $unitRecipe="pieces";
                 }
                 if($unitRecipe == "g" || $unitRecipe =="ml" || $unitRecipe =="pieces" ){
