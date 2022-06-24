@@ -26,7 +26,7 @@
     
     {{-- Good Nutrition --}}
     <h4 class="h4 mt-4">Good Nutrition</h4>
-    @foreach($recipeNutrition['bad'] as $goodRecipeNutrition)
+    @foreach($recipeNutrition['good'] as $goodRecipeNutrition)
         <span><b>{{$goodRecipeNutrition['title']}}</b></span>
         <span> {{$goodRecipeNutrition['amount']}}</span><br>
         <span>Percent Of Daily Needs: {{$goodRecipeNutrition['percentOfDailyNeeds']}}%</span>

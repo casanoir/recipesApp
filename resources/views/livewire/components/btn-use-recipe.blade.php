@@ -1,4 +1,4 @@
-<div>
+<div class="text-center">
   <button wire:click="useRecipe" class="btn btn-primary mx-auto my-1">
     Use Recipe
   </button>
