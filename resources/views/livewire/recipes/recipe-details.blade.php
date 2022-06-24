@@ -10,6 +10,7 @@
             <input type="radio" id="tab11" name="tab-control" checked>
             <input type="radio" id="tab22" name="tab-control">
             <input type="radio" id="tab33" name="tab-control">
+            <input type="radio" id="tab44" name="tab-control">
             <ul>
                 <li title="Recipe Info">
                     <label for="tab11" role="button">
@@ -24,6 +25,11 @@
                 <li title="Caloric Breakdown">
                     <label for="tab33" role="button">
                         <span>Recipe Nutrition</span>
+                    </label>
+                </li>
+                <li title="Equipments">
+                    <label for="tab44" role="button">
+                        <span>Equipments</span>
                     </label>
                 </li>
                 
@@ -50,6 +56,12 @@
                 <h2>Recipe Nutrition</h2>
                 <div style="height: 25rem;">
                     @livewire('recipes.recipe-nutrition')
+                </div>
+            </section>
+            <section>
+                <h2>Equipments</h2>
+                <div style="height: 25rem;">
+                    @livewire('recipes.recipe-equipments',['recipeId'=>$apiRecipeId])
                 </div>
             </section>
             
