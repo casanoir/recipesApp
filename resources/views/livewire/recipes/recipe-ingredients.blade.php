@@ -1,8 +1,7 @@
 {{--  Ingredients  --}}
 <div>
-  <h3 class="h3 text-light my-2" style="text-align: center">Ingredients</h3>
+  <h3 class="h3 text-light my-2 text-center">Ingredients</h3>
   @livewire('components.btn-use-recipe',['recipeIngredients'=>$extendedIngredients])
-  </button>
 <div id=recipesIngredientContainer class="showAllIngredients">
   <table class="table table-striped">
     @foreach ($extendedIngredients as $ingredientData)

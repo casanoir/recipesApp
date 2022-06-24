@@ -5,8 +5,8 @@
     @foreach ($recipeInstructions as $recipeInstruction)
         {{-- Instruction Name --}}
         @if ($recipeInstruction['name'])
-            <h3>{{$recipeInstruction['name']}}</h3>
             <hr>
+            <h3 class="h3 mt-4 p-2 bg-primary">{{$recipeInstruction['name']}}</h3>
         @endif 
         
         {{-- Instruction Steps --}}
@@ -32,7 +32,7 @@
                 @endif 
 
                 {{-- Instruction Step Discription --}}
-                <p class="mt-2">->{{$instructionStep['step']}}</p>
+                <p class="mt-2">-> {{$instructionStep['step']}}</p>
                 
             </div>
         @endforeach

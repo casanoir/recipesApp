@@ -67,6 +67,9 @@
   overflow-y: auto;
 }
 /* ---------START TABS */
+.tabsShowRecipe{
+  height: 85vh !important;
+}
 .tabs {
   background: #f2f2f2;
   padding: 15px;

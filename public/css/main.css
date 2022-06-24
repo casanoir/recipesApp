@@ -54,6 +54,45 @@ body {
 
 
 
+.equipmentImage {
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+
+.favoriteBtn{
+    float: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+
+}
+.favoriteBtnOuter{
+    color: black;
+    font-size: 48px;
+}
+.favoriteBtnInner{
+    float: left;
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    z-index: 1001;
+    font-size: 38px;
+}
+.favoriteBtnFavorite{
+    color: #efefef;
+}
+.favoriteBtnFavorite:hover{
+    color: #93DFA7;
+}
+.favoriteBtnUnfavorite{
+    color: #93DFA7;
+}
+.favoriteBtnUnfavorite:hover{
+    color: #efefef;
+}
+
 .percentageBarBackground {
     height:15px;
     background-color: white;
@@ -93,6 +132,30 @@ body {
 }
 
 
+
+/* @medias for the search in the navbar */
+@media only screen and (max-width: 1121px) {
+    #search-input{
+        max-width: 150px;
+    }
+}
+@media only screen and (max-width: 1094px) {
+    #search-input{
+        max-width: 120px;
+    }
+}
+@media only screen and (max-width: 1060px) {
+    #search-input{
+        max-width: 90px;
+    }
+}
+@media only screen and (max-width: 1027px) {
+    #search-input{
+        max-width: 60px;
+    }
+}
+
+
 /* @media to show the sidebar again if it's collapsed but the screen gets wider */
 @media only screen and (min-width: 768px) {
     #sidebarSupportedContent{
@@ -112,6 +175,10 @@ body {
 
 
 /* Bootstrap overrides */
+.bg-primary {
+    background-color: #7DBE8E !important;
+}
+
 .btn-primary {
     background-color: #7DBE8E;
     border-color: #4F7759;
@@ -140,3 +207,4 @@ body {
 .fa-question-circle{
     cursor: pointer;
 }
+

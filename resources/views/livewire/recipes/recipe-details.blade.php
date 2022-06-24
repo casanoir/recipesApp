@@ -6,7 +6,7 @@
     </div>
     @else
     <div class="ingredient-details">
-        <div class="tabs">
+        <div class="tabs tabsShowRecipe">
             <input type="radio" id="tab11" name="tab-control" checked>
             <input type="radio" id="tab22" name="tab-control">
             <input type="radio" id="tab33" name="tab-control">
