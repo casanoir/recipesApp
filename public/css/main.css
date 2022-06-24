@@ -59,6 +59,40 @@ body {
     max-height: 100% !important;
 }
 
+
+.favoriteBtn{
+    float: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+
+}
+.favoriteBtnOuter{
+    color: black;
+    font-size: 48px;
+}
+.favoriteBtnInner{
+    float: left;
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    z-index: 1001;
+    font-size: 38px;
+}
+.favoriteBtnFavorite{
+    color: #efefef;
+}
+.favoriteBtnFavorite:hover{
+    color: #93DFA7;
+}
+.favoriteBtnUnfavorite{
+    color: #93DFA7;
+}
+.favoriteBtnUnfavorite:hover{
+    color: #efefef;
+}
+
 .percentageBarBackground {
     height:15px;
     background-color: white;
