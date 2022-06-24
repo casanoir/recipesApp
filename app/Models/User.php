@@ -23,10 +23,21 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
     public function ingredients()
     {
         return $this->belongsToMany(Ingredient::class, 'ingredients_users');
     }
+
+    public function likesIngredients()
+    {
+        return $this->belongsToMany(Ingredient::class)->withTimestamps()->orderByDesc('favorite_ingredients.created_at');
+    }
+    public function likesRecipes()
+    {
+        return $this->belongsToMany(FavoriteRecipes::class)->withTimestamps()->orderByDesc('favorite_recipes.created_at');
+    }
+    
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -7,14 +7,14 @@ class FavoriteRecipes extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-    */
-    public $fillable = [
+    protected $fillable = [
         'user_id',
         'recipe_id'
     ];
-   
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class,'favorite_recipes');
+    }
+
 }

@@ -18,4 +18,8 @@ class Ingredient extends Model
     {
         return $this->belongsToMany(User::class, 'ingredients_users');
     }
+    public function likes()
+    {
+        return $this->belongsToMany(User::class,'favorite_ingredients');
+    }
 }
