@@ -10,9 +10,22 @@ use DB;
 
 class BtnUseRecipe extends Component
 {
+    protected $listeners = ['refreshComponent' => '$refresh'];
     public $extendedIngredients;
-    public $afterUsing=[];
+    
+    public $missedIngredientNames;
+    public $notEnoughArrayName;
     public $afterUsingIngNames;
+    public $wrongUnitKey;
+    public $wrongUnitValue;
+    public $messageWrongUnit;
+    public $messageAmountArray;
+    
+    public $missedIngredient=[];
+    public $amountArray=[];
+    public $wrongUnitArray=[];
+    public $notEnoughArray=[];
+    public $afterUsing=[];
 
     public function mount($recipeIngredients)
     {
@@ -55,17 +68,16 @@ class BtnUseRecipe extends Component
                         if( $unitRecipe == $userIngredientUnit){
                             if($amountRecipe <= $userIngredientAmount){
                                 $userIngredientAmountNew=$userIngredientAmount-$amountRecipe;
-                                IngredientsUser::where('id' , $userIngredientId)
-                                ->update([
-                                    'amount' => $userIngredientAmountNew,
-                                ]);
+                                $this->amountArray += [ $userIngredientId => $userIngredientAmountNew ];
                             }
                             else{
-                                $messageNotEnough="You dont have enough ".$userIngredientName." to do that recipe ";                     
+                                array_push($this->notEnoughArray, $userIngredientName); 
+
                             }
                         }
                         else{                   
-                            $messageWrongUnit="You ingredient -".$userIngredientName."- have the wrong unit must be -".$userIngredientUnit."-";                     
+                            $this->wrongUnitArray += [ $userIngredientName => $unitRecipe ];
+                                                
                         }
                 }
                 else{
@@ -75,17 +87,14 @@ class BtnUseRecipe extends Component
                                 if( $unitRecipe == $userIngredientUnit){
                                     if($amountRecipe <= $userIngredientAmount){
                                         $userIngredientAmountNew=$userIngredientAmount-$amountRecipe;
-                                        IngredientsUser::where('id' , $userIngredientId)
-                                        ->update([
-                                            'amount' => $userIngredientAmountNew,
-                                        ]);
+                                        $this->amountArray += [ $userIngredientId => $userIngredientAmountNew ];
                                     }
                                     else{
-                                        $messageNotEnough="You dont have enough ".$userIngredientName." to do that recipe.";                      
+                                        array_push($this->notEnoughArray, $userIngredientName);                   
                                     }
                                 }
                                 else{
-                                    $messageWrongUnit="You ingredient -".$userIngredientName."- have the wrong unit must be -".$userIngredientUnit."-";                     
+                                    $this->wrongUnitArray += [ $userIngredientName => $unitRecipe ];                  
                                 }
                         }
                         elseif($unitRecipe == "L" ){
@@ -94,49 +103,85 @@ class BtnUseRecipe extends Component
                                 if( $unitRecipe == $userIngredientUnit){
                                         if($amountRecipe <= $userIngredientAmount){
                                             $userIngredientAmountNew=$userIngredientAmount-$amountRecipe;
-                                            IngredientsUser::where('id' , $userIngredientId)
-                                            ->update([
-                                                'amount' => $userIngredientAmountNew,
-                                            ]);  
+                                            $this->amountArray += [ $userIngredientId => $userIngredientAmountNew ];
                                         }
                                         else{
-                                            $messageNotEnough="You dont have enough ".$userIngredientName." to do that recipe";                  
+                                            array_push($this->notEnoughArray, $userIngredientName);                 
                                         }
                                 }
                                 else{
-                                    $messageWrongUnit="You ingredient -".$userIngredientName."- have the wrong unit must be -".$userIngredientUnit."-";                                         
+                                    $this->wrongUnitArray += [ $userIngredientName => $unitRecipe ];                                      
                                 }
                         }
                         else{        array_push($this->afterUsing, $userIngredientName);                            
                         }
                 }
-                if(isset($messageNotEnough)){
-                    $message=$messageNotEnough;
-                    return $this->dispatchBrowserEvent('swal:modal',[
-                        'type' => 'error',
-                        'title' => $message,
-                        'text' => '',
-                    ]);   
-                }elseif(isset($messageWrongUnit)){
-                    $message=$messageWrongUnit;
-                    return $this->dispatchBrowserEvent('swal:modal',[
-                        'type' => 'error',
-                        'title' => $message,
-                    ]);   
-                }
-            }            
+            }  
+            else{
+                array_push($this->missedIngredient, $userIngredientName);  
+            }          
         }
         // end for each
-        if(isset($this->afterUsing)){
-            foreach($this->afterUsing as $string) {
-                $this->afterUsingIngNames .= $string." - ";
+        if($this->missedIngredient){
+            foreach($this->missedIngredient as $string) {
+                $this->missedIngredientNames .= $string." - ";
             }
-            $message="Edit after using: -".$this->afterUsingIngNames;
-            return $this->dispatchBrowserEvent('swal:modal',[
-                'type' => 'info',
-                'title' => 'How much did you used for that recipe?',
+            $message="you need: -".$this->missedIngredientNames;
+             $this->dispatchBrowserEvent('swal:modal',[
+                'type' => 'error',
+                'title' => 'You can not use this recipe!',
+                'text' => $message,
+            
+            ]); 
+        }
+        elseif($this->wrongUnitArray){
+            foreach($this->wrongUnitArray as $key => $value) {
+                $this->wrongUnitKey .= $key." - ";
+                $this->wrongUnitValue .= $value." - ";
+            }
+            $this->messageWrongUnit="your ingredient -".$this->wrongUnitKey." have the wrong unit must be -".$this->wrongUnitValue;
+            $this->dispatchBrowserEvent('swal:modal',[
+                'type' => 'error',
+                'title' => 'The wrong unit',
+                'text' => $this->messageWrongUnit,
+            ]);   
+        }            
+        elseif($this->notEnoughArray){
+            foreach($this->notEnoughArray as $string) {
+                $this->notEnoughArrayName .= $string." - ";
+            }
+            $message="you need: -".$this->notEnoughArrayName;
+             $this->dispatchBrowserEvent('swal:modal',[
+                'type' => 'error',
+                'title' => 'You dont have enough to do that recipe',
                 'text' => $message,
             ]); 
         }
+        elseif($this->amountArray){
+            foreach($this->amountArray as $key => $value) {
+                IngredientsUser::where('id' , $key)
+                                    ->update([
+                                        'amount' => $value,
+                                    ]);
+            }
+            if($this->afterUsing){
+                foreach($this->afterUsing as $string) {
+                    $this->afterUsingIngNames .= $string." - ";
+                }
+                $message="Edit after using: -".$this->afterUsingIngNames;
+                 $this->dispatchBrowserEvent('swal:modal',[
+                    'type' => 'info',
+                    'title' => 'How much did you used for that recipe?',
+                    'text' => $message,
+                ]); 
+                
+            }
+            else{
+                 $this->dispatchBrowserEvent('swal:modal',[
+                    'type' => 'success',
+                    'title' => 'Data update successfully',
+                ]); 
+            }
+        }       
     }
 }
