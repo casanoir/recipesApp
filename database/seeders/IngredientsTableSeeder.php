@@ -18,7 +18,7 @@ class IngredientsTableSeeder extends Seeder
         Ingredient::truncate();
 
         $ingredients=[
-            ['name' =>'5 spice powder','apiIngredientId'=>'1002002'],
+        ['name' =>'5 spice powder','apiIngredientId'=>'1002002'],
             ['name' =>'acorn squash','apiIngredientId'=>'11482'],
             ['name' =>'adobo sauce','apiIngredientId'=>'6979'],
             ['name' =>'agave nectar','apiIngredientId'=>'19912'],

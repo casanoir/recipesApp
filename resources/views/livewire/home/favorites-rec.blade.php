@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card__body">
                 <div class="favoriteBtn">
-                    <button class="m-2" wire:click="removeFromFavorite({{$recipe->recipe_id}}">
+                    <button class="m-2" wire:click="removeFromFavorite({{$recipe->recipe_id}})">
                         <i class="fas fa-heart favoriteBtnOuterRecipe">
                             <i class="fas fa-heart favoriteBtnInnerRecipe favoriteBtnUnfavorite"></i>
                         </i>

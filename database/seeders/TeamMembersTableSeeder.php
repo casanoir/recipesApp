@@ -8,11 +8,7 @@ use App\Models\TeamMember;
 
 class TeamMembersTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
     public function run()
     {
         TeamMember::truncate();

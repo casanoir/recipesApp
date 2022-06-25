@@ -17,9 +17,25 @@ class MyIngredient extends Component
     public $sortField = 'ingredients.name';
     public $sortAsc = true;
     public $selected = [];
+    public $selectedAll = false;
     public $selectedIngNames;
 
+    public function updatedSelectedAll($value){
+        if($value){
+            $this->selected=DB::table("ingredients_users")
+            ->where('user_id',Auth::user()->id)
+            ->join('ingredients', 'ingredients.id', '=', 'ingredients_users.ingredient_id')
+            ->pluck('ingredients.name')
+            ->toArray();
+            return $this->selected;
+        }
+        else{
+            $this->selected=[];
+        }
+    }
     public function searchRecipes(){
+        // dd($this->selected);
+
         foreach($this->selected as $string) {
             $this->selectedIngNames .= $string.",";
         }

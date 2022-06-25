@@ -40,7 +40,7 @@
     </div>
     @if($selected)
       <div class="w-1/6 relative mx-1">
-          <button wire:click="searchRecipes" class="block appearance-none w-full bg-blue-500 border border-gray-200 text-white py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">Ingredient's Recipes</button>
+          <button wire:click="searchRecipes" class="block appearance-none w-full bg-blue-500 border border-gray-200 text-white py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500">Ingredient's Recipes</button>
       </div>
       @endif
   </div>
@@ -49,7 +49,7 @@
               <thead>
                   <tr>
                       <th class="px-4 py-2">
-                        {{-- <input wire:model="selectedAll"  type="checkbox"> --}}
+                        <input wire:model="selectedAll"  type="checkbox">
                       </th>
                       <th class="px-4 py-2">Name</th>
                       <th class="px-4 py-2">Amount</th>

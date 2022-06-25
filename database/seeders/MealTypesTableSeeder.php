@@ -8,11 +8,6 @@ use App\Models\MealType;
 
 class MealTypesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         MealType::truncate();
