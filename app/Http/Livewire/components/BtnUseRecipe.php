@@ -10,7 +10,6 @@ use DB;
 
 class BtnUseRecipe extends Component
 {
-    protected $listeners = ['refreshComponent' => '$refresh'];
     public $extendedIngredients;
     
     public $missedIngredientNames;
@@ -182,7 +181,6 @@ class BtnUseRecipe extends Component
                     'title' => 'Data update successfully',
                 ]); 
             }
-        }  
-        return $this->emit('$refreshUseRecipesBtn');     
+        }   
     }
 }

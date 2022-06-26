@@ -1,3 +1,9 @@
 <div>
-    {{-- The Master doesn't talk, he acts. --}}
+    @foreach($searchedRecipes as $recipe)
+    {{-- {{$recipe->title}} --}}
+  
+    @endforeach
 </div>
+@php
+//   dd($recipe->results);
+@endphp

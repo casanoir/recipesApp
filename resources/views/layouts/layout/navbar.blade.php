@@ -39,36 +39,7 @@
                 </ul>
     
                 <div class="searchBar me-5">
-                    <div class="input-group">
-                        <div class="form-outline">
-                          <input id="search-input" type="search" id="form1" placeholder="Search..." class="form-control" />
-                        </div>
-                        <button id="search-button" type="button" class="btn btn-sm btn-primary">
-                          <i class="fas fa-search"></i>
-                        </button>
-                        <!--START searchModal-->
-                        <button id="search-settings" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchModal">
-                            <i class="fas fa-cogs"></i>
-                        </button>
-                        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="searchModalLabel">Search settings</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--END searchModal-->
-                      </div>
+                    @livewire('components.search-bar')
                 </div>
                 <!-- Right Side Of Navbar -->
                     <li class="nav-item dropdown ms-5">
@@ -95,21 +66,7 @@
                             
                         </div>
                     </li>
-                                {{-- start profile modal --}}
-                    <div wire:ignore.self class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="profileModalLabel">profile</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                         <span aria-hidden="true close-btn">×</span>
-                                    </button>
-                                </div>
-                               @livewire('modals.profile-modal')
-                            </div>
-                        </div>
-                    </div>
-                    {{-- end profile modal --}}
+                       
                 @endauth
             </ul>
         </div>
