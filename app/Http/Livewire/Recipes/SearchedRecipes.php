@@ -11,13 +11,18 @@ class SearchedRecipes extends Component
     public $searchedQuery;
     public $searchedParameters=[];
     public $searchedRecipes;
+
+    protected $listeners =[
+        'filerSearchParameters'=>'update',
+        
+    ];
     
     public function mount($searchQuery){
         $this->searchedQuery = $searchQuery;
         $this->searchedParameters = [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
             'query'=>$searchQuery,
-            'number'=>2,
+            'number'=>1,
         ];
         $this->getSearchedRecipes($this->searchedParameters);
     }
@@ -25,8 +30,20 @@ class SearchedRecipes extends Component
     public function getSearchedRecipes( $searchedParameters){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/complexSearch?',$searchedParameters );
         $this->searchedRecipes = $response->json();
-        // dd($this->searchedRecipes);
         
         return $this->searchedRecipes;
+    }
+    public function update($searchFilterParameters){
+        // dd($this->searchedQuery,$searchFilterParameters);
+       
+        $this->searchedParameters = [
+            'apiKey'=>env('SPOONACULAR_API_KEY'),
+            'query'=>$this->searchedQuery,
+            'number'=>1,
+        ];
+        foreach ($searchFilterParameters as $key => $value){
+            $this->searchedParameters += [ $key => $value ];
+        }
+        $this->getSearchedRecipes($this->searchedParameters);
     }
 }
