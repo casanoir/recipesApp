@@ -8,12 +8,14 @@ use Illuminate\Support\Facades\Http;
 
 class RecipeInstructions extends Component
 {
+    public $apiRecipeId;
     public $recipeInstructions;
 
-    public function mount(Request $request){
-        $this->getRecipeInstructions(324694);
-
+    public function mount($recipeId){
+        $this->apiRecipeId = $recipeId;
+        $this->getRecipeInstructions($recipeId);
     }
+
     // Get Recipe Instructions
     public function getRecipeInstructions( $recipeId){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/'.$recipeId.'/analyzedInstructions?
@@ -24,4 +26,3 @@ class RecipeInstructions extends Component
         return $this->recipeInstructions;
     }
 }
-// https://api.spoonacular.com/recipes/324694/analyzedInstructions?apiKey=3727e8e26c9241faba401b1d59156e31

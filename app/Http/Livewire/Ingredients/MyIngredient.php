@@ -20,6 +20,7 @@ class MyIngredient extends Component
     public $selectedAll = false;
     public $selectedIngNames;
 
+    //button to select all ingredients in list
     public function updatedSelectedAll($value){
         if($value){
             $this->selected=DB::table("ingredients_users")
@@ -33,9 +34,9 @@ class MyIngredient extends Component
             $this->selected=[];
         }
     }
-    public function searchRecipes(){
-        // dd($this->selected);
 
+    //button to search recipes with the selected ingredients
+    public function searchRecipes(){
         foreach($this->selected as $string) {
             $this->selectedIngNames .= $string.",";
         }
@@ -43,9 +44,12 @@ class MyIngredient extends Component
         
     }
     
+    //show information of individual ingredient
     public function showIngredientInfo($ingredientId){
 		$this->emit('emitshowMyIngdientInfo',$ingredientId);                                
 	}
+
+    //button to delete ingredient from user's list
     public function deleteIngredient($ingredientId){
 		$ingredient = DB::table("ingredients_users")
                                 ->where('user_id',Auth::user()->id)
@@ -60,6 +64,7 @@ class MyIngredient extends Component
                                 
 	}
     
+    //render the table when the view is loaded
     public function render(){
         return view('livewire.ingredients.my-ingredient', [
             'myIngredients' => IngredientsUser::search($this->search)

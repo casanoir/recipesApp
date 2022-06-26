@@ -25,12 +25,12 @@ class RecipeIngredients extends Component
             'includeNutrition'=>false,
         ]);
         $this->recipeInfo = $response->json();
-        // dd($this->recipeInfo);
         // Get Recipe's Ingredients
         $this->extendedIngredients=$this->recipeInfo['extendedIngredients'];
         
         return $this->extendedIngredients;
     }
+    
     public function ingredientInfo($id){
         $this->emit('emitShowingredientInfoComponent',$id);
     }

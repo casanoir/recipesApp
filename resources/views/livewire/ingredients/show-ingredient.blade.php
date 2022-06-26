@@ -2,7 +2,7 @@
     @empty($apiIngredientId)
         <div class="mainIngredient" >
             <h3 class="mt-3" >Main ingredient</h3>
-            <p class="mt-4 mainIngredientDescription" >Knowing your way around a kitchen’s basic ingredients is seriously important and we’ve split the 1,000 most frequently used ingredients up by alphabeticly.</p>
+            <p class="mt-4 mainIngredientDescription" >Knowing your way around a kitchen’s basic ingredients is seriously important and we’ve split the 1,000 most frequently used ingredients up alphabeticly.</p>
         </div>
     @endempty
     @isset($apiIngredientId)

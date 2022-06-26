@@ -8,11 +8,9 @@ use DB;
 
 class FavoritesRec extends Component
 {
-    protected $listeners =[
-        'emitDislike'=>'$refresh'
-    ];
     public function render()
     {
+        //get this users favorite recipes from database and prepare to be shown in the view
         $userFavoriteRecipes=DB::table('favorite_recipes')
                 ->where('user_id',Auth::user()->id)
                 ->orderBy('favorite_recipes.created_at')->get();
@@ -21,7 +19,7 @@ class FavoritesRec extends Component
         ]);
     }
     public function removeFromFavorite($recipeId){
-        //delete movie id from this user's favorites
+        //delete recipe id from this user's favorites
         DB::table('favorite_recipes')->where('user_id',Auth::id())->where('recipe_id', $recipeId)->delete();
     }
 }

@@ -16,6 +16,7 @@ class RecipeDetails extends Component
         $this->apiRecipeId = $recipeId;
         return $this->apiRecipeId;
     }
+    
     public function update($id){
         $this->apiIngredientId = $id;
         return $this->apiIngredientId;

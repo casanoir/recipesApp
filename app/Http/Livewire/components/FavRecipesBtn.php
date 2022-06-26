@@ -16,7 +16,6 @@ class FavRecipesBtn extends Component
 
     public function mount($recipe)
     {
-        // dd($recipe['image']);
         $this->recipeId=$recipe['id'];
         $this->recipeName=$recipe['title'];
         $this->recipeImage=$recipe['image'];
@@ -45,7 +44,7 @@ class FavRecipesBtn extends Component
     }
 
     public function removeFromFavorite($recipeId){
-        //delete movie id from this user's favorites
+        //delete recipe id from this user's favorites
         DB::table('favorite_recipes')->where('user_id',Auth::id())->where('recipe_id', $recipeId)->delete();
         $recipeId = null;
         $this->liked=false;

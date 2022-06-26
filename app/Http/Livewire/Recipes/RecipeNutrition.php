@@ -8,12 +8,14 @@ use Illuminate\Support\Facades\Http;
 
 class RecipeNutrition extends Component
 {
+    public $apiRecipeId;
     public $recipeNutrition;
 
-    public function mount(Request $request){
-        $this->getRecipeNutrition(324694);
-
+    public function mount($recipeId){
+        $this->apiRecipeId = $recipeId;
+        $this->getRecipeNutrition($recipeId);
     }
+
     // Get Recipe Nutrition
     public function getRecipeNutrition( $recipeId){
         $response = Http::acceptJson()->get('https://api.spoonacular.com/recipes/'.$recipeId.'/nutritionWidget.json?
@@ -24,4 +26,3 @@ class RecipeNutrition extends Component
         return $this->recipeNutrition;
     }
 }
-// https://api.spoonacular.com/recipes/1003464/nutritionWidget.json?apiKey=3727e8e26c9241faba401b1d59156e31

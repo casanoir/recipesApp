@@ -49,13 +49,12 @@
             </section>
             <section>
                 <h2>Recipe Instructions</h2>
-                @livewire('recipes.recipe-instructions')        
-                
+                @livewire('recipes.recipe-instructions',['recipeId'=>$apiRecipeId])        
             </section>
             <section>
                 <h2>Recipe Nutrition</h2>
                 <div style="height: 25rem;">
-                    @livewire('recipes.recipe-nutrition')
+                    @livewire('recipes.recipe-nutrition',['recipeId'=>$apiRecipeId])
                 </div>
             </section>
             <section>

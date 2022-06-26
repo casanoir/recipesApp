@@ -1,8 +1,8 @@
 <div>
     @if($btnAction == 'add')
-    <button  type="button" class="btn-pdf" data-bs-toggle="modal" data-bs-target="#ingredientModal">
-        Add it
-    </button>
+        <button  type="button" class="btn-pdf" data-bs-toggle="modal" data-bs-target="#ingredientModal">
+            Add it
+        </button>
         <!--START ingredientModal-->
         <div class="modal fade" id="ingredientModal" tabindex="-1" aria-labelledby="ingredientModalLabel" aria-hidden="true" >
             <div class="modal-dialog">
@@ -17,9 +17,9 @@
         </div>
         <!--END ingredientModal--> 
     @else
-    <button  type="button" class="btn-pdf" data-bs-toggle="modal" data-bs-target="#ingredientModal">
-        Edit
-    </button>
+        <button  type="button" class="btn-pdf" data-bs-toggle="modal" data-bs-target="#ingredientModal">
+            Edit
+        </button>
         <!--START ingredientModal-->
         <div class="modal fade" id="ingredientModal" tabindex="-1" aria-labelledby="ingredientModalLabel" aria-hidden="true" >
             <div class="modal-dialog">

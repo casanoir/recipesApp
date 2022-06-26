@@ -6,7 +6,7 @@
         @endforeach     
     </div>
     <hr class="mt-3" style="color:#efefef">
-    <div class="showAllIngredients">
+    <div class="showAllIngredients pt-2">
         {{-- Show all ingredients alphabetically --}}
         @foreach ($ingredientsAlphabetically as $ingredient)
             {{-- Ingredients --}}

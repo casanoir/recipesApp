@@ -14,8 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //add 1000 ingredients to ingredient table
         $this->call(IngredientsTableSeeder::class);
+
+        //add the teammembers for about us page to table
         $this->call(TeamMembersTableSeeder::class);
+
+        //add mealtype names to table
         $this->call(MealTypesTableSeeder::class);
         
     }

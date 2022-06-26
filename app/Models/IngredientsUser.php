@@ -19,6 +19,7 @@ class IngredientsUser extends Model
         'date',
         'added_at',
     ];
+    
     public static function search($search)
     {
         return empty($search) ? static::query()

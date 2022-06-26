@@ -1,6 +1,5 @@
 <!-- Use a recipe id to get full information about a recipe-->
 <div>
-
     <!-- Title -->
     <div class="div-ingredient-name">
         <h3 class="h3">{{$recipeInfo['title']}}</h3>
