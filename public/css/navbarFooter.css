@@ -18,22 +18,17 @@ Footer {
     height: 50px;
 }
 
-#search-button {
-   background-color: #f8fafc;
-   border-width: 1px;
-   border-style: solid none solid none;
-   border-color: #ced4da;
-   border-radius: 0;
-   color: #212529;
-}
-
 #search-input {
     border-radius: 10px 0px 0px 10px;
     max-width: 174px;
     height: 37px;
+    padding: 2px;
+}
+#search-input:focus {
+    outline: none;
 }
 
-#search-settings {
+#search-button {
     background-color: #9AEAAF;
     border-width: 1px;
     border-style: solid solid solid none;

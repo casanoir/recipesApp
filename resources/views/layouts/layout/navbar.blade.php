@@ -35,9 +35,11 @@
                         </li>
                     </ul>
             
+                    <!--searchbar-->
                     <div class="searchBar me-5">
                         @livewire('components.search-bar')
                     </div>
+
                     <!-- Right Side Of Navbar -->
                     <li class="nav-item dropdown ms-5">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -1,11 +1,11 @@
 <div>
     @if($apiIngredientId)
     <div class="showIngredientDetails" >
-        <button wire:click="goBack" class="btn btn-pdf">Back to the recipe</button>
+        <button wire:click="goBack" class="btn btn-pdf p-1 mt-2">Back to the recipe</button>
         @livewire('ingredients.ingredient-info',['apiIngredientId'=>$apiIngredientId])
     </div>
     @else
-    <div class="ingredient-details">
+    <div class="ingredient-details mt-0">
         <div class="tabs tabsShowRecipe">
             <input type="radio" id="tab11" name="tab-control" checked>
             <input type="radio" id="tab22" name="tab-control">

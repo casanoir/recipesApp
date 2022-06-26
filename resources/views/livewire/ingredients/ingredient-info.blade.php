@@ -1,6 +1,6 @@
 <div class="ingredient-info">
     <div class="row1 ">
-        <div class="mt-5">
+        <div class="position-relative">
             {{-- Ingredient Image --}}
             @livewire('components.fav-ingredients-btn',['apiIngredientId'=>$apiIngredientId])
             <img style="height: 90px;width: 100px;" src="https://spoonacular.com/cdn/ingredients_100x100/{{$ingredientData['image']}}" alt="{{$ingredientData['name']}}">
