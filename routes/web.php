@@ -21,6 +21,7 @@ use App\Http\Controllers\AboutController;
 
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
+
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 Auth::routes();
@@ -30,7 +31,8 @@ Route::get('/home', [HomeController::class, 'dashboardHome'])->name('home');
 
 Route::controller(RecipesController::class)->group(function () {
     Route::get('/recipes', 'dashboardRecipes')->name('recipes');
-    Route::get('/recipe/{recipeId}', 'dashboardShowRecipe')->name('showRecipe');
+    Route::get('/recipe/{recipeId}', 'dashboardShowRecipe');
+    Route::get('/recipes/{searchQuery}', 'dashboardShearchRecipe');
 });
 
 

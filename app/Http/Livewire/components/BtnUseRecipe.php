@@ -182,6 +182,7 @@ class BtnUseRecipe extends Component
                     'title' => 'Data update successfully',
                 ]); 
             }
-        }       
+        }  
+        return $this->emit('$refreshUseRecipesBtn');     
     }
 }

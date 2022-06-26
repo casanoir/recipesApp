@@ -34,11 +34,10 @@ class RecipesController extends Controller
         return view('pages.dashboard.recipes.show-recipe',compact('recipeId'));
     }
    
-    public function dashboardShowRecipeIngredientInfo($recipeId,$ingredientName)
+    public function dashboardShearchRecipe($searchQuery)
     {
-        $apiIngredientId= DB::table('ingredients')->where('name',$ingredientName)->value('apiIngredientId');
         
-        return view('pages.dashboard.recipes.show-recipe-ingredient-info',compact('recipeId','apiIngredientId'));
+        return view('pages.dashboard.recipes.shearch-recipe',compact('searchQuery'));
     }
 
     
