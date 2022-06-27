@@ -39,15 +39,15 @@ class BtnUseRecipe extends Component
         
         foreach($this->extendedIngredients as $recipeIngredient){
             //  Recipe's ingredient : get id as apiIngredientId amout as amountRecipe unitShort as unitRecipe
-            $apiIngredientId = $recipeIngredient['id'];
-            $userIngredientName=$recipeIngredient['name'];
-            $amountRecipe= $recipeIngredient['measures']['metric']['amount'] ;
-            $unitRecipe= $recipeIngredient['measures']['metric']['unitShort'] ;
+                $apiIngredientId = $recipeIngredient['id'];
+                $userIngredientName=$recipeIngredient['name'];
+                $amountRecipe= $recipeIngredient['measures']['metric']['amount'] ;
+                $unitRecipe= $recipeIngredient['measures']['metric']['unitShort'] ;
 
             // From table ingredients in the database get the id's value using apiIngredientId  
-            $ingredient_id= DB::table("ingredients")
-            ->where('apiIngredientId',$apiIngredientId)
-            ->value('id');
+                $ingredient_id= DB::table("ingredients")
+                ->where('apiIngredientId',$apiIngredientId)
+                ->value('id');
             
             //  check of the user has the ingredient
             if (in_array($ingredient_id, $myIngredientsId)){
@@ -123,7 +123,7 @@ class BtnUseRecipe extends Component
                                     $this->wrongUnitArray += [ $userIngredientName => $unitRecipe ];                                      
                                 }
                         }
-                        else{        array_push($this->afterUsing, $userIngredientName);                            
+                        else{ array_push($this->afterUsing, $userIngredientName);                            
                         }
                 }
             }  

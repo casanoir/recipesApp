@@ -22,7 +22,7 @@ class SearchedRecipes extends Component
         $this->searchedParameters = [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
             'query'=>$searchQuery,
-            'number'=>1,
+            'number'=>10,
         ];
         $this->getSearchedRecipes($this->searchedParameters);
     }
@@ -39,7 +39,7 @@ class SearchedRecipes extends Component
         $this->searchedParameters = [
             'apiKey'=>env('SPOONACULAR_API_KEY'),
             'query'=>$this->searchedQuery,
-            'number'=>1,
+            'number'=>10,
         ];
         foreach ($searchFilterParameters as $key => $value){
             $this->searchedParameters += [ $key => $value ];
